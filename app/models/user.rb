@@ -13,9 +13,7 @@ class User
   field :address
 
   has_mongoid_attached_file :photo,
-    :styles => { large: ['200x200>', :jpg], thumb: ['75x75>', :jpg], medium: ['100x100>', :jpg]},
-    :path => ":rails_root/public/system/:class/:attachment/:id/:style/:filename",
-    :url => "/system/:class/:attachment/:id/:style/:filename"
+    :styles => { large: ['200x200>', :jpg], thumb: ['75x75>', :jpg], medium: ['100x100>', :jpg]}
 
   has_many :services, :dependent => :destroy, :autosave => true
 
