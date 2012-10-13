@@ -1,4 +1,6 @@
 MakeMyEvent::Application.routes.draw do
+  get "pages/contact"
+
   get "home/index"
 
   # Omniauth
@@ -8,6 +10,8 @@ MakeMyEvent::Application.routes.draw do
   
   match '/auth/:service/callback' => 'services#create' 
   match '/auth/failure' => 'services#failure'
+
+  match '/contact_us', :to => 'pages#contact'
 
   resource :account
 

@@ -6,3 +6,6 @@
 
 ### app url 
   http://evenoma.r12.railsrumble.com/
+
+### certificate url
+  http://evenoma.r12.railsrumble.com/events/event-title-12/certificate/user-token

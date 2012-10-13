@@ -14,7 +14,6 @@
 //= require jquery-ui
 //= require bootstrap
 //= require jquery-ui-timepicker-addon
-    
 
 $(document).ready(function(){
   $('.sub_text').keyup(function() {
@@ -40,4 +39,16 @@ $(document).ready(function(){
     var charLength = $('.sub_text').val().length;
     var count = maxChar - charLength
    $('#charCounter').html('Characters left '+ count +'');
+
+  $("a.popup").click(function(e) {
+    popupCenter($(this).attr("href"), $(this).attr("data-width"), $(this).attr("data-height"), "authPopup");
+    e.stopPropagation(); return false;
+  });
+
+  function popupCenter(url, width, height, name) {
+    var left = (screen.width/2)-(width/2);
+    var top = (screen.height/2)-(height/2);
+    return window.open(url, name, "menubar=no,toolbar=no,status=no,width="+width+",height="+height+",toolbar=no,left="+left+",top="+top);
+  }
+
 });
