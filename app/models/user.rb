@@ -2,8 +2,7 @@ class User
   include Mongoid::Document
   include Mongoid::Paperclip
     
-  field :first_name
-  field :last_name
+  field :name
   field :dob
   field :job_title
   field :email
@@ -14,4 +13,7 @@ class User
 
   has_mongoid_attached_file :photo
 
+  has_many :services, :dependent => :destroy, :autosave => true
+
+  validates :name, :presence => true
 end
