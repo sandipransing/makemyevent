@@ -39,4 +39,14 @@
   font-weight: 400;
   text-decoration: none;
 }
+.edit_user {
+  float: right;
+}
+.user_photo {
+  float: left;
+  margin-right: 15px;
+}
+.right_full {
+  width: 66% !important;
+}
 

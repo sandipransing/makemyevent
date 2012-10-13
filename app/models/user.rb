@@ -1,9 +1,10 @@
 class User
   include Mongoid::Document
   include Mongoid::Paperclip
+  include Mongoid::Timestamps
     
   field :name
-  field :dob
+  field :dob, type: Date
   field :job_title
   field :email
   field :education

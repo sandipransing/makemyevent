@@ -1,9 +1,22 @@
 - content_for :title do
   My Profile
 
-%h1= @user.name
+%div.4u-first
+  %section
+    = link_to "edit", edit_account_url, :class => :edit_user
+    %header
+      .user_photo
+        = image_tag @user.photo.url
+      %h2= @user.name
+      %h3= "Joined #{@user.created_at.strftime("%B %Y")}"
+  - if @user.job_title
+    %label= @user.job_title
+  - if @user.dob
+    %label Birthday #{@user.dob.strftime("%d %b, %Y")}
+  - if @user.email
+    %label Email #{@user.email }
+  - if @user.website
+    %label Website #{@user.website }
 
-= @user.name
-= @user.email
-= @user.website
-= image_tag @user.photo.url(:large)
+%div.4u.right_full
+  %section
