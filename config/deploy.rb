@@ -11,7 +11,7 @@ require 'mina/git'
 #   branch       - Branch name to deploy. (needed by mina/git)
 
 set :domain, '109.74.196.54'
-set :deploy_to, '/root/makemyevent'
+set :deploy_to, '/var/www/makemyevent'
 set :repository, 'git@github.com:railsrumble/r12-team-44.git'
 set :branch, 'master'
 set :user, 'root'
