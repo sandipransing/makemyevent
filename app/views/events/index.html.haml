@@ -1,12 +1,15 @@
-= link_to "Add Event", new_event_path, class: 'button-big'
+.11u.links
+  = link_to "Add Event", new_event_path, class: 'button-big'
 
 - @events.each do |event|
-  %header
-    %h2= link_to event.name, event
-  %ul.quote-list
-    %li
-      = image_tag event.logo(:small)
-      %p "Neque nisidapibus mattis"
-      %span Jane Doe, CEO of UntitledCorp
-    %p
-      = event.short_desc
+  .4u.event
+    %section
+      %header
+        %h2= link_to event.name, event
+      %ul.quote-list
+        %li
+          = image_tag event.logo(:medium)
+          %p= event.organizer_name 
+          %span= event.organizer_mobile_no
+        %p
+          = event.short_desc
