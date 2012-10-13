@@ -1,7 +1,12 @@
 MakeMyEvent::Application.routes.draw do
   get "home/index"
 
-  match '/auth/:provider/callback', :to => 'sessions#callback'
+  # Omniauth
+  match "/twitter/signin" => redirect("/auth/twitter")
+  match "/signout" => "services#signout"
+  
+  match '/auth/:service/callback' => 'services#create' 
+  match '/auth/failure' => 'services#failure'
 
   resources :events
   # The priority is based upon order of creation:

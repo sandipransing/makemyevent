@@ -1,2 +1,7 @@
 %h1 Make My Event 
 %p wait ..i will be there ...
+
+- if user_signed_in?
+  = link_to "Sign out", signout_path, class: 'pull-right'
+- else
+  = link_to 'Twitter', twitter_signin_path, title: 'Sign in with Twitter'
