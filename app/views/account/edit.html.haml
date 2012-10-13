@@ -1,0 +1,10 @@
+%h1= @user.name
+
+= form_for @user, :url => account_url do |f|
+  = f.text_field :name
+  = f.text_field :email
+  = f.text_field :website
+  = f.text_field :dob
+  = f.file_field :photo 
+  = image_tag @user.photo.url(:large)
+  = f.submit :update

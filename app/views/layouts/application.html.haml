@@ -13,6 +13,11 @@
     #header-wrapper
       = render 'header'
       = yield :feature_event
+      - if user_signed_in?
+        = link_to "Sign out", signout_path, class: 'pull-right'
+      - else
+        = link_to 'Twitter', twitter_signin_path, title: 'Sign in with Twitter'
+        = link_to 'Facebook', facebook_signin_path, title: 'Sign in with Facebook'
     / Content
     #content-wrapper
       #content
