@@ -16,30 +16,6 @@
 //= require jquery-ui-timepicker-addon
 
 $(document).ready(function(){
-  $('.sub_text').keyup(function() {
-      var maxChar = 100
-      var charLength = $(this).val().length;
-      // Displays count
-      var count = maxChar - charLength
-      $('#charCounter').html('Characters left '+ count +'');
-        // Alerts when 250 characters is reached
-        if($(this).val().length > maxChar){
-          $(this).val($(this).val().substr(0, maxChar));
-          $('#charCounter').html('Characters left 0');
-          alert('You may only have up to ' + maxChar + ' characters.')
-         }
-        if($(this).val().length >= 30){
-          var msg_title = $(this).val().substr(0, 30)
-          $('#msg-title').html(msg_title + '...');
-        }else{
-          $('#msg-title').html($(this).val())
-        }
-      });
-    var maxChar = 100
-    var charLength = $('.sub_text').val().length;
-    var count = maxChar - charLength
-   $('#charCounter').html('Characters left '+ count +'');
-
   $("a.popup").click(function(e) {
     popupCenter($(this).attr("href"), $(this).attr("data-width"), $(this).attr("data-height"), "authPopup");
     e.stopPropagation(); return false;
