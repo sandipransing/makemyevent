@@ -9,3 +9,34 @@
 .event ul li span {
     margin-left:120px;
 }
+
+#signin {
+    position: absolute;
+    right:0;
+    color: #C6C8C8;
+}
+
+#signin span {
+    padding-top: 50px;
+    vertical-align: top;
+    font-weight: 400;
+}
+
+#signin ul {
+    width: 200px;
+}
+
+#signin ul li {
+    text-decoration: none;
+    width:auto;
+    float:left;
+    padding-left:10px;
+}
+
+.signout {
+  color: #fff;
+  font-size:1em;
+  font-weight: 400;
+  text-decoration: none;
+}
+
