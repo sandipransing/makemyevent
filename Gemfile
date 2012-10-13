@@ -39,7 +39,7 @@ gem "haml-rails"
 gem "jquery-rails"
 gem "bson_ext"
 gem "mongoid", ">= 2.0.0.beta.19"
-gem 'mongoid_slug', '0.9.0'
+gem 'mongoid_slug'
 gem "mongoid-paperclip", :require => "mongoid_paperclip"
 gem "omniauth", "~> 0.2.0"
 gem "rspec-rails", ">= 2.0.1", :group => [:development, :test]
