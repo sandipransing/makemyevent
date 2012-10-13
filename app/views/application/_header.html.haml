@@ -1,0 +1,18 @@
+%ul.nav.nav-pills.pull-right
+  %li{:class => 'active'}
+    %a{:href => '/'}
+      Home
+  %li
+    %a{:href => '/'}
+      Events
+  %li.dropdown
+    %a{:href=>"#", 'data-toggle'=>"dropdown", :class=>"dropdown-toggle"}
+      %i.icon-user
+      User Name
+      %b.caret
+    %ul.dropdown-menu
+      %li
+        = link_to "My Account", "#"
+      %li.divider
+      %li
+        = link_to "Logout", "#"

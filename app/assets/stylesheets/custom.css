@@ -1,0 +1,188 @@
+@import url(http://fonts.googleapis.com/css?family=Delius);
+@import url(http://fonts.googleapis.com/css?family=Permanent+Marker);
+
+body {
+padding-top: 0px;
+}
+
+a {  
+  color: #0044CC;  
+}
+
+a:hover {
+  color: #0044CC;
+  text-decoration: underline;
+}
+
+.navbar .brand {
+	 padding: 2px 20px 2px;	 
+}
+    
+.pageActions {
+	padding: 10px 0 10px 0;
+	border-top:1px solid #eee;
+}
+
+/*typography*/
+
+.reportNumber {
+	font-size:28px;	
+	text-align: center;  
+}
+
+.reportLabel {
+	font-size:14px;	 
+	color: silver;
+	
+}
+
+/*.divSmiley {
+	width: 100px;
+	float:left;
+	text-align: center;
+	vertical-align:middle;
+	border:0px solid silver;
+	padding:0 20px 0 20px;
+}*/
+
+.center {
+	text-align: center !important;
+}
+
+
+.mediumText {
+	font-size: 16px;
+	line-height: 22px;
+}
+
+
+.largeText {
+	font-size: 18px;
+	line-height: 24px;
+}
+
+.xlargeText {
+	font-size: 20px;
+	line-height: 26px;
+}
+
+.redText {
+	color:#B02B2C;
+}
+
+.blueText {
+	color:#356AA0;
+}
+
+.greenText {
+	color:#006E2E;
+}
+
+.orangeText {
+	color:#FF7400;
+}
+
+.grayText {
+	color:gray;
+}
+
+.textDelius {
+	font-family: 'Delius', cursive;	
+}
+
+.textMarker {
+	font-family: 'Permanent Marker';	
+}
+
+/*forms*/
+.largeFormLabel {
+	font-size: 20px;
+	font-weight: 200;
+}
+
+.largeTextEntry {
+	font-size: 18px;
+	line-height: 26px;
+	padding: 15px;
+}
+
+/*images*/
+.appIcon {
+	-webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+.appIconSmall {
+	width: 32px;
+	height: 32px;
+}
+
+.rainbow {
+position:relative;height:3px;
+background-color:#ff961c;
+background-image:-webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #e75239), color-stop(12.5%, #e75239), color-stop(12.5%, #ff961c), color-stop(25%, #ff961c), color-stop(25%, #ffcc27), color-stop(37.5%, #ffcc27), color-stop(37.5%, #fce62f), color-stop(50%, #fce62f), color-stop(50%, #cde35b), color-stop(62.5%, #cde35b), color-stop(62.5%, #82cc33), color-stop(75%, #82cc33), color-stop(75%, #41bece), color-stop(87.5%, #41bece), color-stop(87.5%, #049cdb), color-stop(100%, #049cdb));
+background-image:-webkit-linear-gradient(left, #e75239 0%,#e75239 12.5%,#ff961c 12.5%,#ff961c 25%,#ffcc27 25%,#ffcc27 37.5%,#fce62f 37.5%,#fce62f 50%,#cde35b 50%,#cde35b 62.5%,#82cc33 62.5%,#82cc33 75%,#41bece 75%,#41bece 87.5%,#049cdb 87.5%,#049cdb 100%);
+background-image:-moz-linear-gradient(left, #e75239 0%,#e75239 12.5%,#ff961c 12.5%,#ff961c 25%,#ffcc27 25%,#ffcc27 37.5%,#fce62f 37.5%,#fce62f 50%,#cde35b 50%,#cde35b 62.5%,#82cc33 62.5%,#82cc33 75%,#41bece 75%,#41bece 87.5%,#049cdb 87.5%,#049cdb 100%);
+background-image:-o-linear-gradient(left, #e75239 0%,#e75239 12.5%,#ff961c 12.5%,#ff961c 25%,#ffcc27 25%,#ffcc27 37.5%,#fce62f 37.5%,#fce62f 50%,#cde35b 50%,#cde35b 62.5%,#82cc33 62.5%,#82cc33 75%,#41bece 75%,#41bece 87.5%,#049cdb 87.5%,#049cdb 100%);
+background-image:linear-gradient(left, #e75239 0%,#e75239 12.5%,#ff961c 12.5%,#ff961c 25%,#ffcc27 25%,#ffcc27 37.5%,#fce62f 37.5%,#fce62f 50%,#cde35b 50%,#cde35b 62.5%,#82cc33 62.5%,#82cc33 75%,#41bece 75%,#41bece 87.5%,#049cdb 87.5%,#049cdb 100%);background-position:50% 0;-webkit-box-shadow:0 1px 2px rgba(0,0,0,0.0625) inset;-moz-box-shadow:0 1px 2px rgba(0,0,0,0.0625) inset;box-shadow:0 1px 2px rgba(0,0,0,0.0625) inset
+}
+
+.container-white {  
+  background-color: #fff;
+  padding: 10px;
+}
+
+.box {	
+  padding: 20px;
+  margin-bottom: 10px;
+  background-color: #fff;
+  border: 1px solid #e3e3e3;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+  
+}
+
+.box-action {
+  background-color: #F9F7ED;
+}
+.box-title {
+	font-size: 22px;	
+	font-weight: 400;
+}
+
+
+.btn-primary {
+  background-color: hsl(360, 71%, 40%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#db2d2d", endColorstr="#ae1d1d");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#db2d2d), to(#ae1d1d));
+  background-image: -moz-linear-gradient(top, #db2d2d, #ae1d1d);
+  background-image: -ms-linear-gradient(top, #db2d2d, #ae1d1d);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #db2d2d), color-stop(100%, #ae1d1d));
+  background-image: -webkit-linear-gradient(top, #db2d2d, #ae1d1d);
+  background-image: -o-linear-gradient(top, #db2d2d, #ae1d1d);
+  background-image: linear-gradient(#db2d2d, #ae1d1d);
+  border-color: #ae1d1d #ae1d1d hsl(360, 71%, 37%);
+  color: #fff !important;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.19);
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn-menu {
+  background-color: hsl(204, 100%, 37%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0089e5", endColorstr="#0071bc");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#0089e5), to(#0071bc));
+  background-image: -moz-linear-gradient(top, #0089e5, #0071bc);
+  background-image: -ms-linear-gradient(top, #0089e5, #0071bc);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #0089e5), color-stop(100%, #0071bc));
+  background-image: -webkit-linear-gradient(top, #0089e5, #0071bc);
+  background-image: -o-linear-gradient(top, #0089e5, #0071bc);
+  background-image: linear-gradient(#0089e5, #0071bc);
+  border-color: #0071bc #0071bc hsl(204, 100%, 35%);
+  color: #fff !important;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.13);
+  -webkit-font-smoothing: antialiased;
+}

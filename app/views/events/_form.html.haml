@@ -1,0 +1,35 @@
+.span8
+  = form_for @event, :html => {:class => 'form-vertical', :multipart => true} do |f|
+    .control-group
+      = f.label :name, "Event Title *", :class => "control-label largeFormLabel"
+      .controls
+        = f.text_field :name, :class => "span8 input-large"
+    .control-group
+      = f.label :short_desc, "Short description *", :class => "control-label largeFormLabel"
+      .controls
+        = f.text_area :short_desc, :rows => 5, :class => "span5 largeTextEntry"
+    .control-group
+      = f.label :description, "Description", :class => "control-label largeFormLabel"
+      .controls
+        = f.text_area :description, :rows => 5, :class => "span8 largeTextEntry"
+    .control-group
+      = f.label :organizer_name, "Organizer Name *", :class => "control-label largeFormLabel"
+      .controls
+        = f.text_field :organizer_name, :class => "span8 input-large"
+    .control-group
+      = f.label :organizer_mobile_no, "Organizer Mobile Number *", :class => "control-label largeFormLabel"
+      .controls
+        = f.text_field :organizer_mobile_no, :class => "span8 input-large"
+
+    .control-group
+      = f.label :location, "Add Event Location *", :class => "control-label largeFormLabel"
+      .controls
+        = f.text_area :location, :rows => 5, :class => "span5 largeTextEntry"
+
+    .control-group
+      = f.label :logo, "Add Logo", :class => "control-label largeFormLabel"
+      .controls
+        = f.file_field :logo
+      %small Maximum size 1 Mb
+    %button.btn.btn-primary{:type=>"submit"}
+      Save Event

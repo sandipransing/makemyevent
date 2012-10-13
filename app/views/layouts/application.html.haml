@@ -1,0 +1,26 @@
+%html
+  %head
+    %meta{:charset=>"utf-8"}
+    %meta{'http-equiv'=>"X-UA-Compatible", :content=>"IE=edge,chrome=1"}
+    = csrf_meta_tags
+
+    %title Make My Event
+    = stylesheet_link_tag "application", :media => "all"
+    = javascript_include_tag "application"
+
+  %body
+    .rainbow
+    %br
+    .container
+      .row-fluid
+        .span3
+          %h2 Make My Event
+        .span9
+          =render "header"
+
+    .container
+      = yield 
+    
+    %hr
+    .container
+      =render "footer"
