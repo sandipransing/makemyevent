@@ -12,63 +12,15 @@
     #header-wrapper
       = render 'header'
       #banner
-        .5grid.5grid-alt
-          .6u-first
-            / Banner Copy
-            %p We do something really useful, important, and unique. Learn all about it here ...
-            %a.button-big{:href => "#"} Go on, click me!
-          .6u
-            / Banner Image
-            %a.bordered-feature-image{:href => "#"}
-              %img{:alt => "", :src => "images/banner.jpg"}/
-          .5grid-clear
+        = yield :feature_event
     / Content
     #content-wrapper
       #content
         .5grid
-          .4u-first
-            / Box #1
-            %section
-              %header
-                %h2 Who We Are
-                %h3 A subheading about who we are
-              %a.feature-image{:href => "#"}
-                %img{:alt => "", :src => "images/pic05.jpg"}/
-              %p
-                Duis neque nisi, dapibus sed mattis quis, rutrum accumsan sed.
-                Suspendisse eu varius nibh. Suspendisse vitae magna eget odio amet mollis
-                justo facilisis quis. Sed sagittis mauris amet tellus gravida lorem ipsum.
-          .4u
-            / Box #2
-            %section
-              %header
-                %h2 What We Do
-                %h3 A subheading about what we do
-              %ul.check-list
-                %li Sed mattis quis rutrum accum
-                %li Eu varius nibh suspendisse lorem
-                %li Magna eget odio amet mollis justo
-                %li Facilisis quis sagittis mauris
-                %li Amet tellus gravida lorem ipsum
-          .4u
-            / Box #3
-            %section
-              %header
-                %h2 What People Are Saying
-                %h3 And a final subheading about our clients
-              %ul.quote-list
-                %li
-                  %img{:alt => "", :src => "images/pic06.jpg"}/
-                  %p "Neque nisidapibus mattis"
-                  %span Jane Doe, CEO of UntitledCorp
-                %li
-                  %img{:alt => "", :src => "images/pic07.jpg"}/
-                  %p "Lorem ipsum consequat!"
-                  %span John Doe, President of FakeBiz
-                %li
-                  %img{:alt => "", :src => "images/pic08.jpg"}/
-                  %p "Magna veroeros amet tempus"
-                  %span Mary Smith, CFO of UntitledBiz
+          = yield
+          = yield :previous_events
+          = yield :upcoming_events
+          = yield :organisers
     / Copyright
     #copyright
       &copy 2012 MakeMyEvent. All rights reserved.

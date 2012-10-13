@@ -1,15 +1,12 @@
-= link_to "Add Event", new_event_path
+= link_to "Add Event", new_event_path, class: 'button-big'
 
-%table.table.table-striped.table-bordered
-  %thead
-    %tr
-      %th 
-      %th name
-      %th Actions
-  %tbody
-    - @events.each do |event|
-      %tr
-        %th= image_tag(event.logo(:small))
-        %th= link_to event.name, event_path(event)
-        %th= link_to "edit", edit_event_path(event)
-
+- @events.each do |event|
+  %header
+    %h2= link_to event.name, event
+  %ul.quote-list
+    %li
+      = image_tag event.logo(:small)
+      %p "Neque nisidapibus mattis"
+      %span Jane Doe, CEO of UntitledCorp
+    %p
+      = event.short_desc

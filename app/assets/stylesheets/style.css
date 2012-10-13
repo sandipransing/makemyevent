@@ -21,10 +21,10 @@
 		body, input, textarea, select
 		{
 			color: #474f51;
-			font-size: 13.5pt;
-			font-family: 'Yanone Kaffeesatz';
-			line-height: 1.85em;
-			font-weight: 300;
+			font-size: 13.5pt !important;
+			font-family: 'Yanone Kaffeesatz', sans-serif !important; 
+			line-height: 1.85em !important;
+			font-weight: 300 !important;
 		}
 
 		ul, ol, p, dl
@@ -202,7 +202,7 @@
 		{
 			display: inline-block;
 			background: #ed391b;
-			color: #fff;
+			color: #fff !important;
 			text-decoration: none;
 			font-size: 1.75em;
 			font-weight: 300;
@@ -251,7 +251,7 @@
 
 			.subpage #header-wrapper
 			{
-				height: 155px;
+				height: 115px;
 			}
 			
 			#features-wrapper
@@ -277,7 +277,7 @@
 		
 			#header
 			{
-				min-height: 155px;
+				min-height: 115px;
 				position: relative;
 			}
 
