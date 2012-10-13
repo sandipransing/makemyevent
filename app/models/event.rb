@@ -19,6 +19,9 @@ class Event
   field :published, type: Boolean, default: false
   field :featured, type: Boolean, default: false
 
+
+  belongs_to :user
+
   has_mongoid_attached_file :logo, :styles => { :small => "50>", :medium => "100>", :large => "200>" }
 
   validates_presence_of :name, :message => "Name can't blank."
