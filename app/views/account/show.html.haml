@@ -6,17 +6,17 @@
     = link_to "edit", edit_account_url, :class => :edit_user
     %header
       .user_photo
-        = image_tag @user.photo.url
+        = image_tag @user.photo.url(:medium)
       %h2= @user.name
       %h3= "Joined #{@user.created_at.strftime("%B %Y")}"
-  - if @user.job_title
-    %label= @user.job_title
-  - if @user.dob
-    %label Birthday #{@user.dob.strftime("%d %b, %Y")}
-  - if @user.email
-    %label Email #{@user.email }
-  - if @user.website
-    %label Website #{@user.website }
+    - if @user.job_title
+      %label= @user.job_title
+    - if @user.dob
+      %label Birthday #{@user.dob.strftime("%d %b, %Y")}
+    - if @user.email
+      %label Email #{@user.email }
+    - if @user.website.present?
+      %label Website #{@user.website }
 
 %div.4u.right_full
   %section

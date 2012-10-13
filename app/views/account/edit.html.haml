@@ -1,10 +1,66 @@
+
+- content_for :title do
+  My Account
+
 %h1= @user.name
 
-= form_for @user, :url => account_url do |f|
-  = f.text_field :name
-  = f.text_field :email
-  = f.text_field :website
-  = f.text_field :dob
-  = f.file_field :photo 
-  = image_tag @user.photo.url(:large)
-  = f.submit :update
+= display_errors(@user)
+
+= form_for @user, :url => account_url, :html => {:class => 'form-vertical', :multipart => true} do |f|
+  .left-box
+    %label.title
+      Name
+      %em.valid*
+    .controls
+      = f.text_field :name, :class => "input-xlarge" 
+    
+    %label.title
+      Email
+      %em.valid*
+    .controls
+      = f.text_field :email, :class => "input-xlarge" 
+
+    %label.title
+      Job Title
+    .controls
+      = f.text_field :job_title, :class => "input-xlarge sub_text"
+
+    %label.title
+      About
+    .controls
+      = f.text_area :about, :rows => 5, :style => "width:600px;"
+      %span.help-block.pull-right
+        %small#charCounter
+        Characters left
+
+  .right-box
+    .right-box-left
+      %label.title 
+        Birth Date 
+      .controls
+        = f.text_field :dob, :class => "input-xlarge start_date"
+    
+      %label.title 
+        Mobile 
+      .controls
+        = f.text_field :mobile, :class => "input-xlarge"
+
+      %label.title 
+        Website 
+      .controls
+        = f.text_field :website, :class => "input-xlarge"
+    .right-box-left.top-margin
+      %label.title Add Photo
+      .controls
+        = image_tag @user.photo.url(:medium)
+        = f.file_field :photo
+      %small Maximum size 1 Mb
+    
+  .set-button
+    %button.button-big{:type=>"submit", :style => "padding:5px 13px;font-size:1.2em;"}
+      Save Event
+
+:javascript
+  $(document).ready(function(){
+    $('#user_dob').datepicker({ dateFormat: 'dd-mm-yy' });
+  });
