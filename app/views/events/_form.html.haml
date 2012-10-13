@@ -2,66 +2,90 @@
   %script{:src=>"http://maps.google.com/maps/api/js?sensor=false"}
   = javascript_include_tag "jquery.ui.addresspicker"
   = stylesheet_link_tag "map"
+= display_errors(@event)
+= form_for @event, :html => {:class => 'form-vertical', :multipart => true} do |f|
+  .left-box
+    %label.title
+      Event Title
+      %em.valid*
+    .controls
+      = f.text_field :name, :class => "input-xxlarge" 
+
+
+    %label.title
+      Short description 
+      %em.valid*
+    .controls
+      = f.text_field :short_desc, :class => "input-xxlarge sub_text"
+      %span.help-block.pull-right
+        %small#charCounter
+        Characters left
+
+    %label.title
+      Description
+    .controls
+      = f.text_area :description, :rows => 5, :style => "width:600px;"
+
+
+    %label.title 
+      Add Event Location 
+      %em.valid*
+    .controls
+      = f.text_field :location, :class => "input-xxlarge", :id => "addresspicker_map"
+      = f.hidden_field :lat, :value => (@event.lat || "18.5204303"), :id => "lat"
+      = f.hidden_field :lng, :value => (@event.lng || "73.85674369999992"), :id => "lng"
   
-.span8
-  = form_for @event, :html => {:class => 'form-vertical', :multipart => true} do |f|
-    .control-group
-      = f.label :name, "Event Title *", :class => "control-label largeFormLabel"
+  .right-box
+    .right-box-left
+      %label.title 
+        Start Date 
+        %em.valid*
       .controls
-        = f.text_field :name, :class => "span8 input-large"
+        = f.text_field :start_date, :class => "input-xlarge start_date"
+    
+    .right-box-right
+      %label.title 
+        Organizer Name 
+        %em.valid*
+      .controls
+        = f.text_field :organizer_name, :class => "input-xlarge"
+    
+    .right-box-left
+      %label.title 
+        End Date 
+        %em.valid*
+      .controls
+        = f.text_field :end_date, :class => "input-xlarge end_date"
 
-    .control-group
-      = f.label :start_date, "Start Date *", :class => "control-label largeFormLabel"
+    .right-box-right
+      %label.title 
+        Organizer Mobile Number 
+        %em.valid*
       .controls
-        = f.text_field :start_date, :class => "span4 input-large start_date"
-    .control-group
-      = f.label :end_date, "End Date *", :class => "control-label largeFormLabel"
-      .controls
-        = f.text_field :end_date, :class => "span4 input-large end_date"
+        = f.text_field :organizer_mobile_no, :class => "input-xlarge"
 
-    .control-group
-      = f.label :short_desc, "Short description *", :class => "control-label largeFormLabel"
-      .controls
-        = f.text_area :short_desc, :rows => 5, :class => "span5 largeTextEntry"
-    .control-group
-      = f.label :description, "Description", :class => "control-label largeFormLabel"
-      .controls
-        = f.text_area :description, :rows => 5, :class => "span8 largeTextEntry"
-    .control-group
-      = f.label :organizer_name, "Organizer Name *", :class => "control-label largeFormLabel"
-      .controls
-        = f.text_field :organizer_name, :class => "span8 input-large"
-    .control-group
-      = f.label :organizer_mobile_no, "Organizer Mobile Number *", :class => "control-label largeFormLabel"
-      .controls
-        = f.text_field :organizer_mobile_no, :class => "span8 input-large"
-
-    .control-group
-      = f.label :location, "Add Event Location *", :class => "control-label largeFormLabel"
-      .controls
-        = f.text_field :location, :class => "span5 largeTextEntry", :id => "addresspicker_map"
-        = f.hidden_field :lat, :value => @event.lat, :id => "lat"
-        = f.hidden_field :lng, :value => @event.lng, :id => "lng"
-    #map
-
-    %br
-    .control-group
+    .right-box-left.top-margin
       %label.checkbox
         = f.check_box :published
         Publish your event
-    .control-group
       %label.checkbox
         = f.check_box :featured
         Make event as featured
 
-
-
-    .control-group
-      = f.label :logo, "Add Logo", :class => "control-label largeFormLabel"
+    .right-box-left.top-margin
+      %label.title Add Logo
       .controls
         = f.file_field :logo
       %small Maximum size 1 Mb
-    %button.btn.btn-primary{:type=>"submit"}
+    
+    .map-view
+      #map
+      %br
+      .right-box{:style => "width:100%;"}
+        %small{:style => "margin-left:20px;"} You can drag and drop the marker to the correct location
+
+  .set-button
+    %button.button-big{:type=>"submit", :style => "padding:5px 13px;font-size:1.2em;"}
       Save Event
 
 :javascript
@@ -92,4 +116,5 @@
     var start_time = "#{@event.end_date.strftime('%d-%m-%Y %I:%M %p') if @event.end_date}"
     $('#event_end_date').datetimepicker( "option", "dateFormat", "dd-mm-yy");
     $('#event_end_date').val(start_time);
+
   });
