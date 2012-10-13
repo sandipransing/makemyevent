@@ -12,5 +12,6 @@
  *= require style
  *= require responsive
  *= require custom
+ *= require jquery-ui
  *= require jquery-ui-timepicker-addon
  */

@@ -248,3 +248,13 @@
   color: #fff;
   text-decoration: none;
 }
+
+.title_span {
+  float: left;
+  width: 250px;
+}
+
+.dt_span {
+  float: left;
+  width: 100px;
+}

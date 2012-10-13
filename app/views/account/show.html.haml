@@ -9,14 +9,50 @@
         = image_tag @user.photo.url(:medium)
       %h2= @user.name
       %h3= "Joined #{@user.created_at.strftime("%B %Y")}"
+    
     - if @user.job_title
       %label= @user.job_title
+    .clr
     - if @user.dob
       %label Birthday #{@user.dob.strftime("%d %b, %Y")}
     - if @user.email
       %label Email #{@user.email }
     - if @user.website.present?
-      %label Website #{@user.website }
+      %label Website |
+      = link_to @user.website, @user.website, :target => :_blank
 
 %div.4u.right_full
   %section
+    %h4.main-title Upcoming Events
+    - if @upcoming_events.empty?
+      There are no events to display
+    - else
+      %ul
+        - @upcoming_events.each do |event|
+          %li
+            .title_span
+              = link_to event.name, event_path(event)
+            .dt_span
+              = event.start_date.strftime('%d, %b %y')
+
+  %section
+    %h4.main-title My Owned Events
+    - if @events.empty?
+      You don't have own events
+    - else
+      %ul
+        - @events.each do |event|
+          %li
+            .title_span
+              = link_to event.name, event_path(event)
+    
+  %section
+    %h4.main-title Past Events
+    - if @past_events.empty?
+      There are no events to display
+    - else
+      %ul
+        - @past_events.each do |event|
+          %li
+            .title_span
+              = link_to event.name, event_path(event)
