@@ -1,6 +1,7 @@
 class User
   include Mongoid::Document
-
+  include Mongoid::Paperclip
+    
   field :first_name
   field :last_name
   field :dob
@@ -9,7 +10,7 @@ class User
   field :education
   field :mobile
   field :website
-  field :address, type: Text
+  field :address
 
   has_mongoid_attached_file :photo
 
