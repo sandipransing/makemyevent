@@ -1,18 +1,10 @@
-%ul.nav.nav-pills.pull-right
-  %li{:class => 'active'}
-    %a{:href => '/'}
-      Home
-  %li
-    %a{:href => '/'}
-      Events
-  %li.dropdown
-    %a{:href=>"#", 'data-toggle'=>"dropdown", :class=>"dropdown-toggle"}
-      %i.icon-user
-      User Name
-      %b.caret
-    %ul.dropdown-menu
-      %li
-        = link_to "My Account", "#"
-      %li.divider
-      %li
-        = link_to "Logout", "#"
+%header#header.5grid
+  .12u-first
+    %h1
+      %a{:href => "/"} 
+        = raw("Make<span style= 'color:red'>My</span>Event ")
+    %nav
+      = link_to 'Home', '/'
+      = link_to 'Events', events_path
+      = link_to 'My Profile', '#'
+      = link_to 'Contact Us', '#'
