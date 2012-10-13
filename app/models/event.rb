@@ -23,4 +23,8 @@ class Event
 
   validates_presence_of :name, :short_desc, :organizer_name, :organizer_mobile_no, :location, :start_date, :end_date
 
+  scope :published, where(:published => true)
+  scope :featured, where(:featured => true).published
+  scope :previous, where(:start_date.lt => Date.today).order_by('end_date DESC').published
+  scope :upcoming, where(:start_date.gt => Date.today).limit(5).order_by('start_date ASC').published
 end
