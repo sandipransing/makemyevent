@@ -15,10 +15,10 @@
       - else
         %span
           Login By
-        = link_to image_tag('twitter.png', size: '32x32'), twitter_signin_path, title: 'Sign in with Twitter'
-        = link_to image_tag('facebook.png', size: '32x32'), facebook_signin_path, title: 'Sign in with Facebook'
+        = link_to image_tag('twitter.png', size: '32x32'), twitter_signin_path, :title => 'Sign in with Twitter', :class => "popup", :"data-width" => 600, :"data-height" => 400
+        = link_to image_tag('facebook.png', size: '32x32'), facebook_signin_path, :title => 'Sign in with Facebook', :class => "popup", :"data-width" => 600, :"data-height" => 400
     %nav
       = link_to 'Home', root_url
       = link_to 'Events', events_path
       = link_to 'My Profile', account_path if current_user
-      = link_to 'Contact Us', '#'
+      = link_to 'Contact Us', contact_us_path

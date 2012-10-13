@@ -27,7 +27,6 @@ class ServicesController < ApplicationController
       reset_session
       flash[:error] = 'This is embarrassing! There was an error while creating your account from which we were not able to recover.'
     end
-    redirect_to root_url
   end
 
   def signout 
@@ -62,7 +61,6 @@ class ServicesController < ApplicationController
   end
 
   def extract_twitter(omniauth)
-    logger.info omniauth.inspect
     @authhash = { name: omniauth['info']['name'], uid: omniauth['uid'].to_s, provider: omniauth['provider'], screen_name: omniauth['info']['nickname'], email: omniauth['info']['email'], image_url: omniauth['info']['image'] }
     
     if @authhash[:uid].blank? || @authhash[:provider].blank?
