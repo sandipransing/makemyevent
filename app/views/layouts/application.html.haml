@@ -1,9 +1,9 @@
 %html
   %head
-    %title MakeMyEvent 
+    %title Make My Event | #{ yield(:title).present? ? yield(:title) : "Plan your event, We assure your event meets success" }
     %meta{:content => "text/html; charset=utf-8", "http-equiv" => "content-type"}/
-    %meta{:content => "", :name => "description"}/
-    %meta{:content => "", :name => "keywords"}/
+    %meta{:content => "Wanted to organize event?? Do not know how to go about it? Need not worry. Just create an event on our website. we will share that with our user base as long as your facebook and twitter friends. We will manage your event. User can register, join for event and track for events via website. That's not done. you can also distribute participation certificate with users.", :name => "description"}/
+    %meta{:content => "make my event, manage event, register, participate, track events, share events", :name => "keywords"}/
     = csrf_meta_tags
     = stylesheet_link_tag "application", :media => "all"
     %link{:rel=>"stylesheet", :href=>"http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css"}
