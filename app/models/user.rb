@@ -1,6 +1,7 @@
 class User
   include Mongoid::Document
-
+  include Mongoid::Paperclip
+    
   field :first_name
   field :last_name
   field :dob
