@@ -37,18 +37,15 @@
         = f.text_area :location, :rows => 5, :class => "span5 largeTextEntry"
 
     %hr
-    %h4.muted 
-      Options
-      %br
-      .control-group
-        %label.checkbox
-          = f.check_box :published
-          Publish your event
-
-      .control-group
-        %label.checkbox
-          = f.check_box :featured
-          Make event as featured
+    %br
+    .control-group
+      %label.checkbox
+        = f.check_box :published
+        Publish your event
+    .control-group
+      %label.checkbox
+        = f.check_box :featured
+        Make event as featured
 
 
 
@@ -59,3 +56,21 @@
       %small Maximum size 1 Mb
     %button.btn.btn-primary{:type=>"submit"}
       Save Event
+
+:javascript
+
+  $(document).ready(function(){
+    $('#event_start_date').datetimepicker({
+      ampm: true
+    });
+    var start_time = "#{@event.start_date.strftime('%d-%m-%Y %I:%M %p') if @event.start_date}"
+    $('#event_start_date').datetimepicker( "option", "dateFormat", "dd-mm-yy");
+    $('#event_start_date').val(start_time);
+    
+    $('#event_end_date').datetimepicker({
+      ampm: true
+    });
+    var start_time = "#{@event.end_date.strftime('%d-%m-%Y %I:%M %p') if @event.end_date}"
+    $('#event_end_date').datetimepicker( "option", "dateFormat", "dd-mm-yy");
+    $('#event_end_date').val(start_time);
+  });
