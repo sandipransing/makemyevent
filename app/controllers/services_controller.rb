@@ -14,9 +14,10 @@ class ServicesController < ApplicationController
       session[:user_id], session[:service_id] = auth.user_id, auth.id
       flash[:notice] = 'Signed in successfully via ' + @authhash[:provider].capitalize + '.'
     else
-      # create user
-      user = User.new(name: @authhash[:name])
-      user.services.build(provider: @authhash[:provider], uid: @authhash[:uid], uname: @authhash[:name], screen_name: @authhash[:screen_name])
+      # find or create user
+      user = User.where(:email => @authhash[:email]).first || User.new(:email => @authhash[:email])
+      user.name = @authhash[:name]
+      user.services.build(provider: @authhash[:provider], uid: @authhash[:uid], uname: @authhash[:name], uemail: @authhash[:email], screen_name: @authhash[:screen_name], :image_url => @authhash[:image_url])
       if user.save
         session[:user_id], session[:service_id] = user.id, user.services.first.id
       end
@@ -50,13 +51,30 @@ class ServicesController < ApplicationController
     end
     omniauth = request.env['omniauth.auth']
     # continue only if hash and parameter exist
-    if params[:service] != 'twitter' || omniauth.blank?
+    if !params[:service].match(/facebook|twitter/) || omniauth.blank?
       flash[:error] ='Invalid Request!'
       redirect_to root_url and return
+    elsif params[:service] == 'twitter'
+      extract_twitter(omniauth)
+    elsif params[:service] == 'facebook'
+      extract_facebook(omniauth)
     end
-    @authhash = { name: omniauth['info']['name'], uid: omniauth['uid'].to_s, provider: omniauth['provider'], screen_name: omniauth['info']['nickname'] }
+  end
+
+  def extract_twitter(omniauth)
+    logger.info omniauth.inspect
+    @authhash = { name: omniauth['info']['name'], uid: omniauth['uid'].to_s, provider: omniauth['provider'], screen_name: omniauth['info']['nickname'], email: omniauth['info']['email'], image_url: omniauth['info']['image'] }
+    
     if @authhash[:uid].blank? || @authhash[:provider].blank?
       flash[:error] = 'Error while authenticating via Twitter. The service did not return valid data.'
+      redirect_to root_url and return
+    end
+  end
+
+  def extract_facebook(omniauth)
+    @authhash = { name: omniauth['info']['name'], uid: omniauth['uid'].to_s, provider: omniauth['provider'], screen_name: omniauth['info']['nickname'], email: omniauth['info']['email'], image_url: omniauth['info']['image'] }
+    if @authhash[:uid].blank? || @authhash[:provider].blank?
+      flash[:error] = 'Error while authenticating via Facebook. The service did not return valid data.'
       redirect_to root_url and return
     end
   end

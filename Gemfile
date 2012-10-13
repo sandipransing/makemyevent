@@ -43,6 +43,7 @@ gem 'mongoid_slug'
 gem "mongoid-paperclip", :require => "mongoid_paperclip"
 gem "omniauth", "1.1.0"
 gem "omniauth-twitter", '0.0.9'
+gem "omniauth-facebook"
 gem "twitter", '2.2.0'
 gem "rspec-rails", ">= 2.0.1", :group => [:development, :test]
 gem 'mina'
