@@ -244,4 +244,7 @@
 .carousel-caption p {
   margin-bottom: 0;
 }
-
+.profile_url {
+  color: #fff;
+  text-decoration: none;
+}
