@@ -37,10 +37,12 @@ end
 gem "haml", ">= 3.0.0"
 gem "haml-rails"
 gem "jquery-rails"
+
 gem "bson_ext"
 gem "mongoid", ">= 2.0.0.beta.19"
 gem 'mongoid_slug'
 gem "mongoid-paperclip", :require => "mongoid_paperclip"
+
 gem "omniauth", "1.1.0"
 gem "omniauth-twitter", '0.0.9'
 gem "twitter", '2.2.0'

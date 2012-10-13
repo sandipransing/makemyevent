@@ -3,6 +3,7 @@ class Event
   include Mongoid::Slug
   include Mongoid::Timestamps
   include Mongoid::Paperclip
+  #include ActsAsTaggable::Taggable
 
   field :name
   slug :name
@@ -11,6 +12,8 @@ class Event
   field :organizer_name
   field :organizer_mobile_no
   field :location
+  field :lat
+  field :lng
   field :start_date, type: Time
   field :end_date, type: Time
   field :published, type: Boolean, default: false
