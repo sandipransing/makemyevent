@@ -4,6 +4,16 @@
       = f.label :name, "Event Title *", :class => "control-label largeFormLabel"
       .controls
         = f.text_field :name, :class => "span8 input-large"
+
+    .control-group
+      = f.label :start_date, "Start Date *", :class => "control-label largeFormLabel"
+      .controls
+        = f.text_field :start_date, :class => "span4 input-large start_date"
+    .control-group
+      = f.label :end_date, "End Date *", :class => "control-label largeFormLabel"
+      .controls
+        = f.text_field :end_date, :class => "span4 input-large end_date"
+
     .control-group
       = f.label :short_desc, "Short description *", :class => "control-label largeFormLabel"
       .controls
@@ -25,6 +35,22 @@
       = f.label :location, "Add Event Location *", :class => "control-label largeFormLabel"
       .controls
         = f.text_area :location, :rows => 5, :class => "span5 largeTextEntry"
+
+    %hr
+    %h4.muted 
+      Options
+      %br
+      .control-group
+        %label.checkbox
+          = f.check_box :published
+          Publish your event
+
+      .control-group
+        %label.checkbox
+          = f.check_box :featured
+          Make event as featured
+
+
 
     .control-group
       = f.label :logo, "Add Logo", :class => "control-label largeFormLabel"
