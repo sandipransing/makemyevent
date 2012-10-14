@@ -87,7 +87,7 @@
 		
 			.quote-list li
 			{
-				padding: 1em 0 1em 0;
+				padding: 0.2em 0 0.2em 0;
 				overflow: hidden;
 			}
 			
@@ -229,6 +229,26 @@
 			background-image: linear-gradient(top, #fd492b, #de2a10);
 		}
 
+		.button-small
+		{
+			display: inline-block;
+			background: #ed391b;
+			color: #fff !important;
+			text-decoration: none;
+			font-size: 1.4em;
+			font-weight: 300;
+			padding: 2px 35px; 
+			outline: 0;
+			border-radius: 30px;
+			box-shadow: inset 0px 0px 0px 1px rgba(255,96,96,0.65), 3px 3px 3px 1px rgba(0,0,0,0.15);
+			background-image: -moz-linear-gradient(top, #ed391b, #ce1a00);
+			background-image: -webkit-linear-gradient(top, #ed391b, #ce1a00);
+			background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ed391b), to(#ce1a00));
+			background-image: -ms-linear-gradient(top, #ed391b, #ce1a00);
+			background-image: -o-linear-gradient(top, #ed391b, #ce1a00);
+			background-image: linear-gradient(top, #ed391b, #ce1a00);
+		}
+
 /*********************************************************************************/
 /* 1200px (>= 481px)                                                             */
 /*********************************************************************************/
@@ -340,6 +360,7 @@
 					line-height: 1.25em;
 					padding-right: 1em;
 					margin: 0 0 1em 0;
+          min-height: 150px
 				}
 
 		/* Features */
@@ -379,6 +400,7 @@
 					box-shadow: 2px 2px 2px 1px rgba(128,128,128,0.1);
 					margin: 0 0 10% 0;
           min-height: 350px;
+          border-radius: 15px;
 				}
 
 				#content h2

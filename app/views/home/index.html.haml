@@ -8,7 +8,7 @@
             %p= event.short_desc
             %a.button-big{:href => "#"} Participate 
           .6u
-            = link_to image_tag(event.logo, :size => '560x190'), event, class: 'bordered-feature-image'
+            = link_to image_tag(event.logo(:extra_large)), event, class: 'bordered-feature-image'
     %a.carousel-control.left{"data-slide" => "prev", :href => "#banner"} ‹
     %a.carousel-control.right{"data-slide" => "next", :href => "#banner"} ›
 

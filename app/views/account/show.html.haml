@@ -22,8 +22,17 @@
       = link_to @user.website, @user.website, :target => :_blank
 
 %div.4u.right_full
-  %section
-    %h4.main-title Upcoming Events
+  %ul
+    %li
+      %a{ :href => "#upcoming"}
+        %h4 Upcoming Events
+    %li
+      %a{ :href => "#owned"}
+        %h4 Owned Events
+    %li
+      %a{ :href => "#past"}
+        %h4 Past Events
+  #upcoming
     - if @upcoming_events.empty?
       There are no events to display
     - else
@@ -35,8 +44,7 @@
             .dt_span
               = event.start_date.strftime('%d, %b %y')
 
-  %section
-    %h4.main-title My Owned Events
+  #owned
     - if @events.empty?
       You don't have own events
     - else
@@ -46,8 +54,7 @@
             .title_span
               = link_to event.name, event_path(event)
     
-  %section
-    %h4.main-title Past Events
+  #past
     - if @past_events.empty?
       There are no events to display
     - else
@@ -56,3 +63,5 @@
           %li
             .title_span
               = link_to event.name, event_path(event)
+:javascript
+  $(".4u.right_full").tabs();

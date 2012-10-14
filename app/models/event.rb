@@ -22,7 +22,7 @@ class Event
   belongs_to :user
   has_many :assets, :autosave => true
 
-  has_mongoid_attached_file :logo, :styles => { :small => "50x50!", :medium => "100x100!", :large => "200x200!" }
+  has_mongoid_attached_file :logo, :styles => { :small => "50x50!", :medium => "100x100!", :large => "200x200!", :extra_large => "450x190!" }
 
   validates_presence_of :name, :message => "Name can't blank."
   validates_presence_of :short_desc, :message => "Short description can't blank."
@@ -47,6 +47,7 @@ class Event
   scope :previous, where(:start_date.lt => Date.today).order_by('end_date DESC').published
   scope :upcoming, where(:start_date.gt => Date.today).limit(5).order_by('start_date ASC').published
 
+<<<<<<< HEAD
 
   def assign_images
     assets = Asset.where(container_identifier: unique_identifier, container: self.class.to_s.underscore, is_primary: false)
@@ -55,4 +56,18 @@ class Event
     end
   end
 
+=======
+  def as_json(options = {})
+    options = {:only => [:_id, :name, :featured], :methods => [:upcoming_event, :previous_event]} 
+    super
+  end
+
+  def upcoming_event
+    self.start_date > Date.today
+  end
+
+  def previous_event
+    self.start_date < Date.today
+  end
+>>>>>>> 9ca9923287feaafee77513e4486d935ecb5876de
 end
