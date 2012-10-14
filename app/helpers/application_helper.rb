@@ -49,6 +49,10 @@ module ApplicationHelper
     link_to('Manage', edit_event_path(event), :class => "button-small") if current_user == event.user
   end
 
+  def publish_button(event, klass='button-small')
+    link_to('Publish', publish_event_path(event), :class => "button-small") if current_user == event.user and event.published == false
+  end
+
   def add_assets_to_form(object)
     assets_tag = []
     assets = object.assets

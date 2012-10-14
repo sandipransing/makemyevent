@@ -22,7 +22,7 @@ MakeMyEvent::Application.routes.draw do
 
   resources :events do 
     member do
-      get :participate, :leave
+      get :participate, :leave, :publish
     end
   end
   resources :assets
