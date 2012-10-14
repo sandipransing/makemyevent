@@ -8,10 +8,12 @@ MakeMyEvent::Application.routes.draw do
   match '/auth/:service/callback' => 'services#create' 
   match '/auth/failure' => 'services#failure'
 
-  match '/contact_us', :to => 'pages#contact'
-  match '/user/:profile', :to => 'account#profile', as: :user_profile
+  match '/contact_us', to: 'pages#contact'
+  match '/user/:profile', to: 'account#profile', as: :user_profile
 
   resource :account
+
+  match '/certificate/:id/:slug', to: 'events#certificate', as: :certificate
 
   resources :events
   # The priority is based upon order of creation:
