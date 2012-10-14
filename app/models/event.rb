@@ -24,7 +24,7 @@ class Event
   has_many :assets, :autosave => true
   has_and_belongs_to_many :participants, class_name: 'User', inverse_of: :participated_events
 
-  has_mongoid_attached_file :logo, :styles => { :small => "50x50>", :medium => "100x100>", :large => "200x200>", :extra_large => "450x190>" }
+  has_mongoid_attached_file :logo, :styles => { :small => "50x50>", :medium => "100x100!", :large => "200x200>", :extra_large => "450x190>" }
 
   validates_presence_of :name, :message => "Name can't blank."
   validates_presence_of :short_desc, :message => "Short description can't blank."
@@ -57,7 +57,7 @@ class Event
   end
 
   def as_json(options = {})
-    options = {:only => [:_id, :name, :featured], :methods => [:upcoming_event, :previous_event]} 
+    options = {:only => [:_id, :name, :featured], :methods => [:upcoming_event, :past?]} 
     super
   end
 
@@ -65,7 +65,7 @@ class Event
     self.start_date > Date.today
   end
 
-  def previous_event
+  def past? 
     self.start_date < Date.today
   end
 end
