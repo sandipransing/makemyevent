@@ -53,8 +53,8 @@
     %ul.quote-list
       %li
         = link_to(image_tag(@event.user.photo(:thumb)), organizer_path(@event.user))
-        %p= @event.user.name
-        %span= @event.user.mobile
+        %p= @event.organizer_name
+        %span= @event.organizer_mobile_no
       %li
         %p{:style =>"margin-left:0px;"}
           %label Address: &nbsp; 
