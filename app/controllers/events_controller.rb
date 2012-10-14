@@ -42,7 +42,14 @@ class EventsController < ApplicationController
     redirect_to  events_path
   end
 
+  def e_certificate
+  end
+
   def certificate
+    html = render_to_string(:action => "e_certificate.html.erb", :layout => false)
+    kit = PDFKit.new(html)
+    kit.stylesheets << "#{Rails.root}/app/assets/stylesheets/certificate.css"
+    send_data(kit.to_pdf, :filename => 'report.pdf', :type => 'application/pdf')
   end
 
   private
