@@ -24,4 +24,6 @@ class User
   validate :email, :uniqueness => true
   validates_format_of :email, :with => Email_regex, :message => "Email format is invalid", :allow_blank => true
   validates_format_of :website, :with => /^http:\/\/.+$/, :message => "Website format is invalid", :allow_blank => true
+
+  scope :organizers, where(:events.ne => [])
 end

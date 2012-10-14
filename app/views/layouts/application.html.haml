@@ -6,7 +6,8 @@
     %meta{:content => "make my event, manage event, register, participate, track events, share events", :name => "keywords"}/
     = csrf_meta_tags
     = stylesheet_link_tag "application", :media => "all"
-    = javascript_include_tag "application"
+    = yield :header_js
+    = javascript_include_tag "application", params[:controller]
     = yield :head
   %body
     / Header

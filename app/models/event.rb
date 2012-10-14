@@ -19,7 +19,6 @@ class Event
   field :published, type: Boolean, default: false
   field :featured, type: Boolean, default: false
 
-
   belongs_to :user
 
   has_mongoid_attached_file :logo, :styles => { :small => "50>", :medium => "100>", :large => "200>" }
