@@ -6,10 +6,7 @@
         .5grid.5grid-alt.item{class: active_class}
           .6u-first
             %p= event.short_desc
-            - if event.participants.include?(current_user)
-              %a.button-big{:href => leave_event_path(event)} Leave
-            - else
-              %a.button-big{:href => participate_event_path(event)} Participate 
+            = participate_button(event)
           .6u
             = link_to image_tag(event.logo(:extra_large)), event, class: 'bordered-feature-image'
     %a.carousel-control.left{"data-slide" => "prev", :href => "#banner"} ‹

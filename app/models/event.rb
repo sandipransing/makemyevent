@@ -19,9 +19,10 @@ class Event
   field :featured, type: Boolean, default: false
   field :unique_identifier, type: String #used for assets identifiction
 
-  belongs_to :user
+  belongs_to :user, inverse_of: :events
+
   has_many :assets, :autosave => true
-  has_and_belongs_to_many :participants, class_name: 'User'
+  has_and_belongs_to_many :participants, class_name: 'User', inverse_of: :participated_events
 
   has_mongoid_attached_file :logo, :styles => { :small => "50x50!", :medium => "100x100!", :large => "200x200!", :extra_large => "450x190!" }
 
