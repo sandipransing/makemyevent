@@ -14,6 +14,7 @@ class User
   field :education
   field :mobile
   field :website
+  field :about
   field :address
 
   has_mongoid_attached_file :photo,

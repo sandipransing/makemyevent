@@ -120,7 +120,7 @@
   margin-right: 15px;
 }
 .right_full {
-  width: 66% !important;
+  width: 64% !important;
 }
 
 .short_desc {
@@ -278,4 +278,13 @@
 .dt_span {
   float: left;
   width: 100px;
+}
+
+.ui-widget {
+  font-family:  'Yanone Kaffeesatz', sans-serif !important;
+}
+
+.ui-datepicker{
+  font-size: 12px !important;
+   line-height: 1em !important;
 }
