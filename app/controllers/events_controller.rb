@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   before_filter :get_event, :except => [:index, :new, :create]
 
   def index
-    @events = Event.all
+    @events = Event.all.order_by('created_at DESC')
   end
 
   def new

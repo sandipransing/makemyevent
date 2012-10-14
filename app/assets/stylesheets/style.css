@@ -229,6 +229,26 @@
 			background-image: linear-gradient(top, #fd492b, #de2a10);
 		}
 
+		.button-small
+		{
+			display: inline-block;
+			background: #ed391b;
+			color: #fff !important;
+			text-decoration: none;
+			font-size: 1.4em;
+			font-weight: 300;
+			padding: 2px 35px; 
+			outline: 0;
+			border-radius: 30px;
+			box-shadow: inset 0px 0px 0px 1px rgba(255,96,96,0.65), 3px 3px 3px 1px rgba(0,0,0,0.15);
+			background-image: -moz-linear-gradient(top, #ed391b, #ce1a00);
+			background-image: -webkit-linear-gradient(top, #ed391b, #ce1a00);
+			background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ed391b), to(#ce1a00));
+			background-image: -ms-linear-gradient(top, #ed391b, #ce1a00);
+			background-image: -o-linear-gradient(top, #ed391b, #ce1a00);
+			background-image: linear-gradient(top, #ed391b, #ce1a00);
+		}
+
 /*********************************************************************************/
 /* 1200px (>= 481px)                                                             */
 /*********************************************************************************/
