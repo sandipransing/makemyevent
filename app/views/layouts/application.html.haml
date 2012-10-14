@@ -10,6 +10,7 @@
     = yield :header_js
     = javascript_include_tag "application", params[:controller]
     = yield :head
+    = javascript_include_tag "http://s0.railsrumble.com/banner.js"
   %body
     / Header
     .flash.rumble-alert.alert-notice
