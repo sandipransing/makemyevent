@@ -14,12 +14,9 @@
           %p= event.organizer_name 
           %span= event.organizer_mobile_no
         %p.short_desc
-          = event.short_desc
+          = event.short_desc.truncate(200)
         %p.participate
-          - if event.participants.include?(current_user)
-            %a.button-small{:href => leave_event_path(event)} Leave
-          - else
-            %a.button-small{:href => participate_event_path(event)} Participate 
+          = participate_button(event, 'button-small')
 
 :javascript 
   var events = #{@events.to_json}

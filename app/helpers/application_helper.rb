@@ -25,6 +25,14 @@ module ApplicationHelper
     return return_string.respond_to?(:html_safe) ? return_string.html_safe : return_string
   end
 
+  def participate_button(event, klass= 'button-big')
+    if current_user && event.participants.include?(current_user)
+        link_to('Leave', leave_event_path(event), class: klass)
+    else
+        link_to('Participate', participate_event_path(event), class: klass)
+    end
+  end
+
   def add_assets_to_form(object)
     assets_tag = []
     assets = object.assets
