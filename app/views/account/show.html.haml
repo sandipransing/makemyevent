@@ -41,8 +41,10 @@
           %li
             .title_span
               = link_to event.name, event_path(event)
-            .dt_span
+            .title_span
               = event.start_date.strftime('%d, %b %y')
+            .dt_span
+              = participate_link(event)
 
   #owned
     - if @events.empty?
@@ -53,6 +55,16 @@
           %li
             .title_span
               = link_to event.name, event_path(event)
+            .title_span
+              = event.start_date.strftime('%d, %b %y')
+            .dt_span
+              #{ event.participants.count } Participant(s)
+            - if my_profile?(@user)
+              = link_to('Manage', edit_event_path(event), :class => 'pull-right')
+            - else
+              = participate_link(event)
+
+
     
   #past
     - if @past_events.empty?
@@ -63,5 +75,10 @@
           %li
             .title_span
               = link_to event.name, event_path(event)
+            .title_span
+              = event.start_date.strftime('%d, %b %y')
+            .dt_span
+              - if my_profile?(@user)
+                = link_to('Certificate', certificate_path(event, @user), :class => 'pull-right')
 :javascript
   $(".4u.right_full").tabs();

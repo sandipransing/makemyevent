@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  helper_method :current_user, :user_signed_in?, :get_idea_quote
+  helper_method :current_user, :user_signed_in?, :get_idea_quote, :my_profile?
 
   private  
   def current_user  
@@ -18,6 +18,11 @@ class ApplicationController < ActionController::Base
       redirect_to (request.referrer ||  root_url)
     end
   end    
+
+  def my_profile?(user)
+    return false unless current_user
+    current_user == user
+  end
 
   def invalid_url!
     flash[:error] = 'Invalid URL !!!'
