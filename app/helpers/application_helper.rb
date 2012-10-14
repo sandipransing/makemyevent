@@ -33,6 +33,10 @@ module ApplicationHelper
     end
   end
 
+  def manage_button(event, klass='button-small')
+   link_to('Manage', edit_event_path(@event), :class => "button-small") if current_user and @event.user.id == current_user.id
+  end
+
   def add_assets_to_form(object)
     assets_tag = []
     assets = object.assets
@@ -42,7 +46,7 @@ module ApplicationHelper
           assets_tag << content_tag('li', class: 'span-li', id: "asset_#{asset.id.to_s}") do
             content_tag('div', class: 'thumbnail') do
               link_to("x", asset_path(asset), :method => :delete, :remote => true) +
-              content_tag('div', class: 'thubnail-75') do
+              content_tag('div', class: 'thumbnail-75') do
                 image_tag(asset.attachment.url(:small), data: {id: asset.id.to_s}) 
               end
             end
@@ -56,7 +60,7 @@ module ApplicationHelper
           assets_tag << content_tag('li', class: 'span-li', id: "asset_#{asset.id.to_s}") do
             content_tag('div', class: 'thumbnail') do
               link_to("x", asset_path(asset), :method => :delete, :remote => true) +
-              content_tag('div', class: 'thubnail-75') do
+              content_tag('div', class: 'thumbnail-75') do
                 image_tag(asset.attachment.url(:small), data: {id: asset.id.to_s}) 
               end
             end

@@ -8,7 +8,8 @@
             %p= event.short_desc
             = participate_button(event)
           .6u
-            = link_to image_tag(event.logo(:extra_large)), event, class: 'bordered-feature-image'
+            .thubnail-500
+              = link_to image_tag(event.logo(:extra_large)), event, class: 'bordered-feature-image'
     %a.carousel-control.left{"data-slide" => "prev", :href => "#banner"} ‹
     %a.carousel-control.right{"data-slide" => "next", :href => "#banner"} ›
 
