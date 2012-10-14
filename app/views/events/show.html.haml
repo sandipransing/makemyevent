@@ -11,6 +11,19 @@
   %section{:style => "min-height:150px;"}
     %p= @event.description
 
+  %section{:style => "min-height:180px;"}
+    %h2 Participants
+    - if @event.participants.present?
+      %ul
+        - count = 0
+        - @event.participants.each do |user|
+          %li.span-li
+            .thubmbnail
+              .thumbnail-75
+                = link_to(image_tag(user.photo(:thumb)), profile_path(user))
+          - break if count == 13
+          - count += 1
+
   - if @event.assets.present?
     #gallery.carousel.slide
       .carousel-inner{:style=>"padding:0px 100px;"}
