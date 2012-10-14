@@ -3,23 +3,16 @@
     <link rel="stylesheet" type="text/css" href="/assets/certificate.css" />
   </head>
   <body>
-    <div class="container" style="background:url('<%= Rails.root %>/app/assets/images/bg.png') no-repeat;background-size:contain;"/>
-      <div class="container-box">
-        <div class="event_name">
-          <p><%= @event.name %></p> 
-        </div>  
-        <div class="presented_to">
-          <div class="label"> Presented To: </div>
-          <div class="participant_name"> 
-            <%=  @user.name %> 
+    <div class="container" style="background:url('<%= Rails.root %>/app/assets/images/bg.png') no-repeat;background-size:contain;margin-left:300px;"/>
+      <div class="container-box" style="margin-top:20px;">
+          <div class="label" style="text-align:center;"> Presented To: </div>
+          <div class="participant_name" style="text-align:center;"> 
+            <%=  @user.name.humanize %> 
           </div> 
-        </div>
-        <div class="description" style="">
-          <p> For Paticipation in <%= @event.name %> </p>
-        </div>
-        <div class="organiser">
-          <p> Organised By: <%= @event.organizer_name %> </p>
-        </div>
+          <p style="text-align:center;font-size:8px;font-style:italic"> for paticipation in </p>
+          <p style="text-align:center;font-size:12px"><%= @event.name %></p>
+          <p style="text-align:center;font-size:12px"> Organised By <%= @event.organizer_name.humanize %> </p>
+          <p style="text-align:center;font-size:8px"> http://twitter.com/makemyevent12</p>
       </div>
     </div>
   </body>
