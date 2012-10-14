@@ -398,3 +398,40 @@
   font-size: 12px !important;
    line-height: 1em !important;
 }
+
+.team-thumbnails a {
+  text-decoration: none;
+}
+
+.team-bios {
+  padding: 20px 30px 30px;
+}
+
+.team-thumbnails .current .circle {
+  border-color: #FFFFFF;
+}
+
+.team-thumbnails .thumbnails li {
+  margin: 0 0 0 15px;
+}
+
+.thumbnails > li {
+  float: left;
+}
+
+.team-thumbnails .circle {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 99em 99em 99em 99em;
+  box-shadow: 0 3px 2px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  display: block;
+  height: 100px;
+  margin: 10px auto;
+  width: 100px;
+}
+
+.pull-right {
+  float: right;
+}
