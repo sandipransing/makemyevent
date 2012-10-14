@@ -23,6 +23,14 @@
       %a.carousel-control.right{"data-slide" => "next", :href => "#gallery"} ›
 
 .5u
+  %span.st_facebook_hcount{ displayText: 'Facebook' }
+  %span.st_twitter_hcount{ displayText: 'Tweet' }
+  = participate_button(@event)
+  = manage_button(@event)
+  %script{ type: "text/javascript", src: "http://w.sharethis.com/button/buttons.js" }
+
+  %br
+  %br
   %section{:style => "min-height:150px;"}
     %header
       %h2 Organizers Details
@@ -59,14 +67,6 @@
   = hidden_field :application, :lng, :value => (@event.lng || "73.85674369999992"), :id => "lng"
   #map-detail
 
--#if @event.participants.include?(current_user)
-  %a.button-big{:href => leave_event_path(@event)} Leave
--# else
-  %a.button-big{:href => participate_event_path(@event)} Participate
-
-%span.st_facebook_hcount{ displayText: 'Facebook' }
-%span.st_twitter_hcount{ displayText: 'Tweet' }
-%script{ type: "text/javascript", src: "http://w.sharethis.com/button/buttons.js" }
 #disqus_thread{:style => "padding-top:50px;"}
   
   
