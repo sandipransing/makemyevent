@@ -34,7 +34,7 @@
     %section
       %header
         %h2 Upcoming events 
-      %ul.check-list
+      %ul.check-list.events
         - @upcoming_events.each do |event|
           %li= link_to event.name, event
 
