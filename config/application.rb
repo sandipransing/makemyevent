@@ -6,7 +6,8 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "active_resource/railtie"
 require "sprockets/railtie"
-# require "rails/test_unit/railtie"
+require "rails/test_unit/railtie"
+require 'pdfkit'
 
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
@@ -62,6 +63,7 @@ module MakeMyEvent
     # Enable the asset pipeline
     config.assets.enabled = true
 
+    config.middleware.use PDFKit::Middleware, :print_media_type => true
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
   end

@@ -8,7 +8,7 @@
             %p= event.short_desc
             %a.button-big{:href => "#"} Participate 
           .6u
-            = link_to image_tag(event.logo), event, class: 'bordered-feature-image'
+            = link_to image_tag(event.logo, :size => '560x190'), event, class: 'bordered-feature-image'
     %a.carousel-control.left{"data-slide" => "prev", :href => "#banner"} ‹
     %a.carousel-control.right{"data-slide" => "next", :href => "#banner"} ›
 
@@ -34,7 +34,7 @@
     %section
       %header
         %h2 Upcoming events 
-      %ul.check-list
+      %ul.check-list.events
         - @upcoming_events.each do |event|
           %li= link_to event.name, event
 
@@ -44,18 +44,11 @@
       %header
         %h2 Organizers 
       %ul.quote-list
-        %li
-          %img{:alt => "", :src => "images/pic06.jpg"}/
-          %p "Neque nisidapibus mattis"
-          %span Jane Doe, CEO of UntitledCorp
-        %li
-          %img{:alt => "", :src => "images/pic07.jpg"}/
-          %p "Lorem ipsum consequat!"
-          %span John Doe, President of FakeBiz
-        %li
-          %img{:alt => "", :src => "images/pic08.jpg"}/
-          %p "Magna veroeros amet tempus"
-          %span Mary Smith, CFO of UntitledBiz
+        - @organizers.each do |organizer|
+          %li
+            = link_to(image_tag(organizer.photo, :height => 40), organizer_path(organizer))
+            %p= organizer.name 
+            %span= organizer.mobile
 
 :javascript
   $(document).ready(function() {

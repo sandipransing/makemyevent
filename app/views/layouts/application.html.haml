@@ -6,8 +6,8 @@
     %meta{:content => "make my event, manage event, register, participate, track events, share events", :name => "keywords"}/
     = csrf_meta_tags
     = stylesheet_link_tag "application", :media => "all"
-    %link{:rel=>"stylesheet", :href=>"http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css"}
-    = javascript_include_tag "application"
+    = yield :header_js
+    = javascript_include_tag "application", params[:controller]
     = yield :head
   %body
     / Header
@@ -16,6 +16,7 @@
       = yield :feature_event
     / Content
     #content-wrapper
+      = yield :links
       #content
         .5grid
           = yield

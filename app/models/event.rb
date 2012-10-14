@@ -19,7 +19,6 @@ class Event
   field :featured, type: Boolean, default: false
   field :unique_identifier, type: String #used for assets identifiction
 
-
   belongs_to :user
   has_many :assets, :autosave => true
 

@@ -244,6 +244,15 @@
 .carousel-caption p {
   margin-bottom: 0;
 }
+.profile_url {
+  color: #fff;
+  text-decoration: none;
+}
+
+.title_span {
+  float: left;
+  width: 250px;
+}
 
 .hide{
   display:none;
@@ -355,3 +364,7 @@
 
 
 
+.dt_span {
+  float: left;
+  width: 100px;
+}
