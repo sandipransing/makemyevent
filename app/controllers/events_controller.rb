@@ -14,7 +14,11 @@ class EventsController < ApplicationController
   end
 
   def edit
-    @event.unique_identifier = Time.now.to_i if @event.unique_identifier.nil? 
+    if @event.user.id != current_user.id
+      redirect_to root_path
+    else
+      @event.unique_identifier = Time.now.to_i if @event.unique_identifier.nil? 
+    end
   end
 
   def create

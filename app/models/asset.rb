@@ -19,6 +19,8 @@ class Asset
   belongs_to :event
 
   validates_presence_of :container_identifier, :attachment
+  
+  validates_attachment :attachment, :content_type => { :content_type =>['image/jpeg', 'image/png', 'image/gif'], :message => 'Image format should be jpg, png, gif.'},:size => { :in => 0..2048.kilobytes, :message => 'Logo image size should be less than 1Mb.'}
 
   # paperclip callbacks
   before_post_process :rename_file
