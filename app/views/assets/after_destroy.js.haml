@@ -1,0 +1,17 @@
+- if @res
+  tmp = $("#asset_#{@asset.id.to_s}");
+  tmp.hide('slow', function(){tmp.remove();});
+  - if @updated_asset
+    $("#toggle_primary_#{@updated_asset.id.to_s}").attr('checked', true);
+
+  -#also remove file name
+  var e = $(document.getElementById('#{params[:user_side_identifier]}'));
+  if(e.prev().length == 0) {
+  next_f = e.next();
+  txt = next_f.text().replace(', ', '');
+  next_f.text(txt);
+  }
+  e.remove();
+
+- else
+  alert('File was not deleted!');

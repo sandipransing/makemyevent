@@ -282,6 +282,116 @@
   width: 250px;
 }
 
+.hide{
+  display:none;
+}
+
+/* image upload */
+
+
+#upload-area {
+  height:80px;
+  padding: 10px 0 10px 10px;
+  width: 98%;
+  font-weight : bold;
+  font-weight: 1.2em;
+}
+
+#upload-area .upload-box {
+    padding-bottom:30px;
+    margin-bottom:0;
+    margin-right:10px;
+}
+
+#upload-area  #progressbar .progress {
+    width: 49%;
+}
+
+.building-files, .space-files .span2 {
+    width: 560px;
+    margin-right:5px;
+}
+
+.building-files, .space-files .thumbnail .thumbnail-actions {
+   text-align:right;
+}
+
+
+.thumbnail-actions
+{
+  margin:1px;
+}
+
+.thumbnail
+{
+  background-color: #FFFFFF;
+  min-height: 60px;
+  padding: 3px;
+  vertical-align: middle;
+
+}
+.thumbnail a {
+  float: right;
+  margin-top: -15px;
+  position: absolute;
+}
+
+.span-li{
+  float:left;
+  margin:7px;
+}
+
+.progress, .progress .bar {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.progress {
+  height: 18px;
+  margin-bottom: 18px;
+  background-color: #f9f9f9;
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#f5f5f5), to(#f9f9f9));
+  background-image: -moz-linear-gradient(top, #f5f5f5, #f9f9f9);
+  background-image: -ms-linear-gradient(top, #f5f5f5, #f9f9f9);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f5f5f5), color-stop(100%, #f9f9f9));
+  background-image: -webkit-linear-gradient(top, #f5f5f5, #f9f9f9);
+  background-image: -o-linear-gradient(top, #f5f5f5, #f9f9f9);
+  background-image: linear-gradient(top, #f5f5f5, #f9f9f9);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5f5f5', endColorstr='#f9f9f9', GradientType=0);
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.progress .bar {
+  width: 0%;
+  height: 18px;
+  background-color: #0480be;
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#149bdf), to(#0480be));
+  background-image: -moz-linear-gradient(top, #149bdf, #0480be);
+  background-image: -ms-linear-gradient(top, #149bdf, #0480be);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #149bdf), color-stop(100%, #0480be));
+  background-image: -webkit-linear-gradient(top, #149bdf, #0480be);
+  background-image: -o-linear-gradient(top, #149bdf, #0480be);
+  background-image: linear-gradient(top, #149bdf, #0480be);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#149bdf', endColorstr='#0480be', GradientType=0);
+  -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: width 0.6s ease;
+  -moz-transition: width 0.6s ease;
+  -ms-transition: width 0.6s ease;
+  -o-transition: width 0.6s ease;
+  transition: width 0.6s ease;
+}
+
+
+
 .dt_span {
   float: left;
   width: 100px;
@@ -294,4 +404,41 @@
 .ui-datepicker{
   font-size: 12px !important;
    line-height: 1em !important;
+}
+
+.team-thumbnails a {
+  text-decoration: none;
+}
+
+.team-bios {
+  padding: 20px 30px 30px;
+}
+
+.team-thumbnails .current .circle {
+  border-color: #FFFFFF;
+}
+
+.team-thumbnails .thumbnails li {
+  margin: 0 0 0 15px;
+}
+
+.thumbnails > li {
+  float: left;
+}
+
+.team-thumbnails .circle {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 99em 99em 99em 99em;
+  box-shadow: 0 3px 2px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  display: block;
+  height: 100px;
+  margin: 10px auto;
+  width: 100px;
+}
+
+.pull-right {
+  float: right;
 }

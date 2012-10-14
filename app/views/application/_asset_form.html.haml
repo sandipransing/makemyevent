@@ -1,0 +1,27 @@
+%h4.title#images Photo Gallary
+.row.marginLeft20
+  %p Please drag and drop your images here or select the images directly from your computer.
+  .row-fluid.well-title-sm
+    .row-fluid.expander{:href => "#building-files"}
+      .pull-right
+        /.upload-buttons.well-title-insert.hidex
+  #building-files
+    #upload-area.row{:data => {:state => "collapsed"}}
+      .row
+        .span10
+          %input{type: 'hidden', id: 'asset_type', value: 'photo'}
+          %input{type: 'hidden', id: 'asset_container', value: model_name}
+      .row.marginLeft10
+        .span10
+          #progressbar.hide
+            .progress
+              .bar
+          #ieProgress.hide
+            %div{:style=> "clear:both;width:110px;"}
+              %img{:src => '/assets/loading.gif',:style=>"float:left;height:25px"}
+              %p{:style=> "float:right;"} Uploading ...
+        .span4
+          %input{:type => "file", :id => "fileupload", name: 'attachment', "data-url" => "/assets", multiple: true, :class => "input-file"}
+      .row.marginTop20.marginLeft20
+        .building-files
+          = add_assets_to_form(object)
