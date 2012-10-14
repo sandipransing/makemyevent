@@ -51,7 +51,7 @@
         - @upcoming_events.each do |event|
           %li
             .title_span
-              = link_to event.name, event_path(event)
+              = link_to event.name, event_path(event), :class => 'event-title'
             .title_span
               = event.start_date.strftime('%d, %b %y')
             .dt_span
@@ -65,7 +65,7 @@
         - @events.each do |event|
           %li
             .title_span
-              = link_to event.name, event_path(event)
+              = link_to event.name, event_path(event), :class => 'event-title'
             .title_span
               = event.start_date.strftime('%d, %b %y')
             .dt_span
@@ -85,7 +85,7 @@
         - @past_events.each do |event|
           %li
             .title_span
-              = link_to event.name, event_path(event)
+              = link_to event.name, event_path(event), :class => 'event-title'
             .title_span
               = event.start_date.strftime('%d, %b %y')
             .dt_span
