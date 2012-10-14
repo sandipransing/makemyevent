@@ -83,6 +83,13 @@
   border-color: #EED3D7;
 }
 
+.global {
+  position: absolute;
+  z-index: 1000;
+  text-align:center;
+  width:100%;
+}
+
 #signin {
     position: absolute;
     right:0;

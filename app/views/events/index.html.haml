@@ -1,7 +1,7 @@
 = content_for :links do
   .links
     = link_to "Add Event", new_event_path, class: 'button-small add-event'
-    = text_field_tag 'search', '', placeholder: 'Search events', class: 'search-box'
+    = text_field_tag 'search', '', size: 30,placeholder: 'Search events', class: 'search-box'
 
 - @events.each do |event|
   .4u.event{:id => event.id}

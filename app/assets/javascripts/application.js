@@ -26,5 +26,7 @@ $(document).ready(function(){
     var top = (screen.height/2)-(height/2);
     return window.open(url, name, "menubar=no,toolbar=no,status=no,width="+width+",height="+height+",toolbar=no,left="+left+",top="+top);
   }
-
+  
+  $('.alert').alert();
+  $('.alert').delay(2000).fadeOut("slow", function () { $(this).remove(); })
 });
