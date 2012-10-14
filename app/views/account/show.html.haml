@@ -3,7 +3,7 @@
 
 %div.4u-first
   %section
-    = link_to "edit", edit_account_url, :class => :edit_user
+    = link_to "edit", edit_account_url, :class => :edit_user if @user == current_user
     %header
       .user_photo
         = image_tag @user.photo.url(:medium)
