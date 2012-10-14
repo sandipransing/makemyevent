@@ -7,7 +7,7 @@
       - if user_signed_in?
         %ul
           %li 
-            = image_tag current_user.photo, height: '40'
+            = image_tag current_user.photo, height: '30'
           %li
             = link_to truncate(current_user.name, :length => 16), account_path, :class => :profile_url
           %li

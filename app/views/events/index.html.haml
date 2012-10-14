@@ -6,11 +6,11 @@
   .4u.event{:id => event.id}
     %section
       %header
-        %h2= link_to event.name.truncate(30), event
+        %h2= link_to event.name.truncate(30), event, class: 'event-title'
       %ul.quote-list
         %li
-          = image_tag event.logo(:medium)
-          %p= event.organizer_name 
+          = link_to(image_tag(event.logo(:medium)), event)
+          %p= event.organizer_name
           %span= event.organizer_mobile_no
         %p.short_desc
           = event.short_desc.truncate(200)

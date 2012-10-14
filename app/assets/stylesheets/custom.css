@@ -503,3 +503,7 @@
   width: 240px;
   text-align: center;
 }
+
+.event-title {
+    text-decoration: none;
+}
