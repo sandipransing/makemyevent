@@ -16,7 +16,11 @@ MakeMyEvent::Application.routes.draw do
 
   match '/certificate/:id/:slug', to: 'events#certificate', as: :certificate
 
-  resources :events
+  resources :events do 
+    member do
+      get :participate, :leave
+    end
+  end
   resources :assets
 
   # The priority is based upon order of creation:

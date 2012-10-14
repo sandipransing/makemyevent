@@ -30,4 +30,9 @@ $(document).ready(function(){
   
   $('.alert').alert();
   $('.alert').delay(2000).fadeOut("slow", function () { $(this).remove(); })
+  
+  $('.thumbnails li a').click(function(){
+    $('.thumbnails li a').removeClass('current');
+    $(this).addClass('current');
+  });
 });

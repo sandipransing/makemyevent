@@ -16,7 +16,10 @@
         %p.short_desc
           = event.short_desc
         %p.participate
-          = link_to "Participate", "#", class: 'button-small'
+          - if event.participants.include?(current_user)
+            %a.button-small{:href => leave_event_path(event)} Leave
+          - else
+            %a.button-small{:href => participate_event_path(event)} Participate 
 
 :javascript 
   var events = #{@events.to_json}
