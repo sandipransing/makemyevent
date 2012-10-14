@@ -5,7 +5,7 @@
         - active_class = (@feature_events.first == event) ? :active : nil
         .5grid.5grid-alt.item{class: active_class}
           .6u-first
-            %p= event.short_desc
+            %p= truncate(event.short_desc, :length => 125)
             = participate_button(event)
           .6u
             .thubnail-500
