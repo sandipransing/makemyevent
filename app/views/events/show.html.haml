@@ -40,8 +40,9 @@
       %a.carousel-control.right{"data-slide" => "next", :href => "#gallery"} ›
 
 .5u
-  = participate_button(@event, "button-small")
   = manage_button(@event)
+  = publish_button(@event)
+  = participate_button(@event, "button-small")
   %script{ type: "text/javascript", src: "http://w.sharethis.com/button/buttons.js" }
 
   %br

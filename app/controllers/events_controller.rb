@@ -16,6 +16,7 @@ class EventsController < ApplicationController
   def edit
     if @event.user.id != current_user.id
       redirect_to root_path
+      flash[:error] = 'Aunauthorized access !!'
     else
       @event.unique_identifier = Time.now.to_i if @event.unique_identifier.nil? 
     end
@@ -61,6 +62,17 @@ class EventsController < ApplicationController
       flash[:error] = 'There is some problem !!'
     end
     redirect_to request.referrer || events_url(:anchor => @event.slug)
+  end
+
+  def publish
+    if @event.user.id != current_user.id
+      flash[:error] = 'Aunauthorized access !!'
+      redirect_to root_path
+    else
+      @event.update_attributes(:published => true)
+      flash[:notice] = 'Event published sucessfully.'
+      redirect_to events_path
+    end
   end
 
   def destroy
