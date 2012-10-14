@@ -19,12 +19,10 @@ module ApplicationHelper
     unless object.new_record?
       assets.each do |asset|
         unless asset.new_record?
-          assets_tag << content_tag('li', class: 'span2', id: "asset_#{asset.id.to_s}") do
+          assets_tag << content_tag('li', class: 'span-li', id: "asset_#{asset.id.to_s}") do
             content_tag('div', class: 'thumbnail') do
-              image_tag(asset.attachment.url(:small), data: {id: asset.id.to_s}) +
-                content_tag('div', class: 'thumbnail-actions') do
-                  link_to "x", my_asset_path(asset), :method => :delete, :remote => true
-                end
+              link_to("x", asset_path(asset), :method => :delete, :remote => true) +
+              image_tag(asset.attachment.url(:small), data: {id: asset.id.to_s}) 
             end
           end
         end
@@ -33,12 +31,10 @@ module ApplicationHelper
     unless object.errors.blank?
       unless @assets.blank?
         @assets.each do |asset|
-          assets_tag << content_tag('li', class: 'span2', id: "asset_#{asset.id.to_s}") do
+          assets_tag << content_tag('li', class: 'span-li', id: "asset_#{asset.id.to_s}") do
             content_tag('div', class: 'thumbnail') do
-              image_tag(asset.attachment.url(:small), data: {id: asset.id.to_s}) +
-                content_tag('div', class: 'thumbnail-actions') do
-                  link_to "x", my_asset_path(asset), :method => :delete, :remote => true
-                end
+              link_to("x", asset_path(asset), :method => :delete, :remote => true) +
+              image_tag(asset.attachment.url(:small), data: {id: asset.id.to_s}) 
             end
           end
         end

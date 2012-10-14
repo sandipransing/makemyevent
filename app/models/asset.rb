@@ -5,7 +5,7 @@ class Asset
 
   field :is_primary, type: Boolean, default: false
 
-  has_mongoid_attached_file :attachment, :styles => { :small => "75>", :medium => "200>", :large => "300>"}
+  has_mongoid_attached_file :attachment, :styles => { :small => "75X75!", :medium => "200x200!", :large => "300x300!"}
 
   # when container(e.g event) form get submitted and it is not valid then uploaded images disappered from view
   # to avoid from this kind of problem we will use following field

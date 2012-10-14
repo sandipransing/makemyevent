@@ -45,20 +45,18 @@ jQuery ($) ->
     if !tmp
       no_asset = true
     # format file thumbnail
-    li = $('<li/>').addClass('span2').attr('id', 'asset_' + data.result._id)
+    li = $('<li/>').addClass('span-li').attr('id', 'asset_' + data.result._id)
     tmbnl = $('<div/>').addClass('thumbnail')
     img = $('<img/>').attr('data', 'asset_' + data.result._id).attr('src', data.result.url)
-    actions = $('<div/>').addClass 'thumbnail-actions'
     
     rm_link = $('<a/>')
     rm_link.attr('href', '/assets/' + data.result._id + '?user_side_identifier=' + data.result.user_side_identifier)
     rm_link.attr('data-method', 'delete').attr('data-remote', true).attr('rel', 'nofollow')
     rm_link.html('x')
 
-    actions.append rm_link
+    tmbnl.append rm_link
 
     tmbnl.append img
-    tmbnl.append actions
 
     li.append tmbnl
     

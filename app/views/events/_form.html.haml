@@ -35,6 +35,11 @@
       = f.text_field :location, :class => "input-xxlarge", :id => "addresspicker_map"
       = f.hidden_field :lat, :value => (@event.lat || "18.5204303"), :id => "lat"
       = f.hidden_field :lng, :value => (@event.lng || "73.85674369999992"), :id => "lng"
+    .map-view
+      #map
+      %br
+      .right-box{:style => "width:100%;"}
+        %small{:style => "margin-left:20px;"} You can drag and drop the marker to the correct location
   
   .right-box
     .right-box-left
@@ -79,15 +84,11 @@
         = f.file_field :logo
       %small Maximum size 1 Mb
 
-    .right-box{:style => "width:100%"}
+    .right-box-left{:style=>"width:100%"}
       = f.hidden_field :unique_identifier, class: 'unique_identifier_for_assets'
       = render partial: 'asset_form', locals: {model_name: @event.class.to_s.underscore, :object => @event}
     
-    .map-view
-      #map
-      %br
-      .right-box{:style => "width:100%;"}
-        %small{:style => "margin-left:20px;"} You can drag and drop the marker to the correct location
+    
 
   .set-button
     %button.button-big{:type=>"submit", :style => "padding:5px 13px;font-size:1.2em;"}

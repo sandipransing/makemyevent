@@ -3,7 +3,6 @@ class Event
   include Mongoid::Slug
   include Mongoid::Timestamps
   include Mongoid::Paperclip
-  #include ActsAsTaggable::Taggable
 
   field :name
   slug :name
@@ -24,7 +23,7 @@ class Event
   belongs_to :user
   has_many :assets, :autosave => true
 
-  has_mongoid_attached_file :logo, :styles => { :small => "50>", :medium => "100>", :large => "200>" }
+  has_mongoid_attached_file :logo, :styles => { :small => "50x50!", :medium => "100x100!", :large => "200x200!" }
 
   validates_presence_of :name, :message => "Name can't blank."
   validates_presence_of :short_desc, :message => "Short description can't blank."
