@@ -6,6 +6,8 @@
       = image_tag @event.logo(:medium)
   %li{:style => "padding-top:30px;"}
     %h2= @event.name
+  %span.st_facebook_hcount{ displayText: 'Facebook' }
+  %span.st_twitter_hcount{ displayText: 'Tweet' }
 
 .7u-first
   %section{:style => "min-height:150px;"}
@@ -36,8 +38,6 @@
       %a.carousel-control.right{"data-slide" => "next", :href => "#gallery"} ›
 
 .5u
-  %span.st_facebook_hcount{ displayText: 'Facebook' }
-  %span.st_twitter_hcount{ displayText: 'Tweet' }
   = participate_button(@event, "button-small")
   = manage_button(@event)
   %script{ type: "text/javascript", src: "http://w.sharethis.com/button/buttons.js" }
