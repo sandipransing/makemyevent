@@ -37,6 +37,28 @@ class EventsController < ApplicationController
     end
   end
 
+  def participate
+    if @event.participants.include?(current_user)
+      flash[:error] = 'You are already particated to event.'
+    elsif @event.participants << current_user
+      flash[:notice] = 'You are added to event particpants'
+    else
+      flash[:error] = 'There is some problem !!'
+    end
+    redirect_to request.referrer || events_url(:anchor => @event.slug)
+  end
+
+  def leave
+    if @event.participants.exclude?(current_user)
+      flash[:error] = 'You are not particated to event.'
+    elsif @event.participants.delete(current_user)
+      flash[:notice] = 'You are free from participated event'
+    else
+      flash[:error] = 'There is some problem !!'
+    end
+    redirect_to request.referrer || events_url(:anchor => @event.slug)
+  end
+
   def destroy
     @event.delete
     redirect_to  events_path

@@ -16,12 +16,16 @@
 %br
 = @event.location
 %br
+- if @event.participants.include?(current_user)
+  %a.button-big{:href => leave_event_path(@event)} Leave
+- else
+  %a.button-big{:href => participate_event_path(@event)} Participate 
 
 %span.st_facebook_hcount{ displayText: 'Facebook' }
-%span.st_twitter_hcount{ displayText: 'Tweet' }
-%script{ type: "text/javascript", src: "http://w.sharethis.com/button/buttons.js" }
-#disqus_thread
-  
+  %span.st_twitter_hcount{ displayText: 'Tweet' }
+    %script{ type: "text/javascript", src: "http://w.sharethis.com/button/buttons.js" }
+      #disqus_thread
+
 :javascript
   stLight.options({publisher: "d2bdabe4-9908-488a-8b92-9c9ecc948184"})
   
