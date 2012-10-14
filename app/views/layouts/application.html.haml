@@ -13,7 +13,7 @@
   %body
     / Header
     .flash.rumble-alert.alert-notice
-      You like this site? Please #{link_to 'click here', 'http://railsrumble.com/entries/44-pune-warriors/favorite', :method => :post, :remote => true} to favorite us!!
+      You like this site? Please #{link_to 'click here', 'http://railsrumble.com/entries/all?utf8=%E2%9C%93&q=make+my+event', :target => '_blank'} to favorite us!!
     = show_flash_messages if show_flash_messages.present? 
     #header-wrapper
       = render 'header'
