@@ -446,7 +446,7 @@
   float: right;
 }
 
-.thubnail-100{
+.thumbnail-100{
  display: table-cell; 
  height: 100px; 
  margin: 0; 
@@ -455,7 +455,7 @@
  width: 100px;
 }
 
-.thubnail-500{
+.thumbnail-500{
  display: table-cell; 
  height: 270px; 
  margin: 0; 
@@ -464,7 +464,7 @@
  width: 500px;
 }
 
-.thubnail-50{
+.thumbnail-50{
  display: table-cell; 
  height: 50px; 
  margin: 0; 
@@ -473,7 +473,7 @@
  width: 50px;
 }
 
-.thubnail-75{
+.thumbnail-75{
  display: table-cell; 
  height: 75px; 
  margin: 0; 
@@ -482,7 +482,7 @@
  width: 75px;
 }
 
-.thubnail-200{
+.thumbnail-200{
  display: table-cell; 
  height: 200px; 
  margin: 0; 

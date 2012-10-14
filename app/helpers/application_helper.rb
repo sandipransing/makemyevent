@@ -25,7 +25,7 @@ module ApplicationHelper
     return return_string.respond_to?(:html_safe) ? return_string.html_safe : return_string
   end
 
-  def participate_button(event, klass= 'button-small')
+  def participate_button(event, klass= 'button-big')
     if current_user && event.participants.include?(current_user)
         link_to('Leave', leave_event_path(event), class: klass)
     else
@@ -46,7 +46,7 @@ module ApplicationHelper
           assets_tag << content_tag('li', class: 'span-li', id: "asset_#{asset.id.to_s}") do
             content_tag('div', class: 'thumbnail') do
               link_to("x", asset_path(asset), :method => :delete, :remote => true) +
-              content_tag('div', class: 'thubnail-75') do
+              content_tag('div', class: 'thumbnail-75') do
                 image_tag(asset.attachment.url(:small), data: {id: asset.id.to_s}) 
               end
             end
@@ -60,7 +60,7 @@ module ApplicationHelper
           assets_tag << content_tag('li', class: 'span-li', id: "asset_#{asset.id.to_s}") do
             content_tag('div', class: 'thumbnail') do
               link_to("x", asset_path(asset), :method => :delete, :remote => true) +
-              content_tag('div', class: 'thubnail-75') do
+              content_tag('div', class: 'thumbnail-75') do
                 image_tag(asset.attachment.url(:small), data: {id: asset.id.to_s}) 
               end
             end
