@@ -50,3 +50,5 @@ gem "twitter", '2.2.0'
 gem "rspec-rails", ">= 2.0.1", :group => [:development, :test]
 gem 'mina'
 gem 'pdfkit', '0.5.0'
+gem 'rails_admin'
+gem "devise"

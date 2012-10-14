@@ -5,6 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Admin.create(email: 'makemyevent12@gmail.com', password: 'admin123', password_confirmation: 'admin123')
+
 User.create( :name => "Robert" , :dob => "1 jan 1980", :job_title => "Prof", :mobile =>"9234567890" , :address => "Australia",:email => "robert_1980@gmail.com", :photo => open("#{Rails.root}/app/assets/profile/1.jpg")  )
 
 User.create( :name => "Alvin" , :dob => "1 jan 1985", :job_title => "Software Engineer", :mobile =>"8234894560" , :address => "Canada",:email => "alvin_1985@gmail.com", :photo => open( "#{Rails.root}/app/assets/profile/2.jpg")  )

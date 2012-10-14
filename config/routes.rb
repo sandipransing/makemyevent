@@ -1,5 +1,9 @@
 MakeMyEvent::Application.routes.draw do
 
+  devise_for :admins
+
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+
   # Omniauth
   match "/twitter/signin" => redirect("/auth/twitter")
   match "/facebook/signin" => redirect("/auth/facebook")
