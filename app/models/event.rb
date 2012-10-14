@@ -22,7 +22,7 @@ class Event
   belongs_to :user
   has_many :assets, :autosave => true
 
-  has_mongoid_attached_file :logo, :styles => { :small => "50x50!", :medium => "100x100!", :large => "200x200!", :extra_large => "450x190!" }
+  has_mongoid_attached_file :logo, :styles => { :small => "50x50>", :medium => "100x100>", :large => "200x200>", :extra_large => "450x190>" }
 
   validates_presence_of :name, :message => "Name can't blank."
   validates_presence_of :short_desc, :message => "Short description can't blank."

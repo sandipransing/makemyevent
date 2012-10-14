@@ -46,7 +46,7 @@
       %ul.quote-list
         - @organizers.each do |organizer|
           %li
-            = link_to(image_tag(organizer.photo, :height => 40), organizer_path(organizer))
+            = link_to(image_tag(organizer.photo(:small)), organizer_path(organizer))
             %p= organizer.name 
             %span= organizer.mobile
 

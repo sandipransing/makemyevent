@@ -6,3 +6,12 @@
   margin: 0px 0 0 10px;
   -webkit-box-shadow: #AAA 0px 0px 15px;
 }
+
+#map-detail {
+  border: 1px solid #DDD; 
+  width:480px;
+  height: 250px;
+  float:right;  
+  margin: 0px 0 0 10px;
+  -webkit-box-shadow: #AAA 0px 0px 15px;
+}

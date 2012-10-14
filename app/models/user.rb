@@ -18,7 +18,7 @@ class User
   field :address
 
   has_mongoid_attached_file :photo,
-    :styles => { large: ['200x200!', :jpg], thumb: ['75x75!', :jpg], medium: ['100x100!', :jpg]}
+    :styles => { large: ['200x200>', :jpg], thumb: ['75x75>', :jpg], medium: ['100x100>', :jpg], small: ['50x50>', :jpg]}
 
   has_many :services, :dependent => :destroy, :autosave => true
   has_many :events, :dependent => :destroy, :autosave => true

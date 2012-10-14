@@ -1,19 +1,63 @@
-= image_tag @event.logo(:large)
-= @event.name
-%br
-= @event.description
-%br
-= @event.organizer_name
-%br
-= @event.organizer_mobile_no
-%br
-= @event.start_date
-%br
-= @event.end_date
-%br
-= @event.location
+= content_for :header_js do
+  %script{:src=>"http://maps.google.com/maps/api/js?sensor=false"}
+%ul.qoute-left
+  %li{:style => "width:auto;float:left;margin-right:10px;"}
+    = image_tag @event.logo(:medium)
+  %li{:style => "padding-top:30px;"}
+    %h2= @event.name
 
-#disqus_thread
+.7u-first
+  %section{:style => "min-height:150px;"}
+    %p= @event.description
+
+  - if @event.assets.present?
+    #gallery.carousel.slide
+      .carousel-inner{:style=>"padding:0px 100px;"}
+        - @event.assets.each do |asset|
+          - active_class = (@event.assets.first == asset) ? :active : nil
+          .5grid.5grid-alt.item{class: active_class}
+            = image_tag asset.attachment(:large)
+      %a.carousel-control.left{"data-slide" => "prev", :href => "#gallery"} ‹
+      %a.carousel-control.right{"data-slide" => "next", :href => "#gallery"} ›
+
+.5u
+  %section{:style => "min-height:150px;"}
+    %header
+      %h2 Organizers Details
+    %ul.quote-list
+      %li
+        = link_to(image_tag(@event.user.photo(:thumb)), organizer_path(@event.user))
+        %p= @event.user.name
+        %span= @event.user.mobile
+      %li
+        %p{:style =>"margin-left:0px;"}
+          %label Address: &nbsp; 
+          = @event.user.address
+        %p{:style =>"margin-left:0px;"}
+          %label Website: &nbsp; 
+          = @event.user.website
+        %p{:style =>"margin-left:0px;"}
+          %label Email: &nbsp; 
+          = @event.user.email
+
+  %section{:style => "min-height:100px;"}
+    %ul.quote-list
+      %li
+        %p{:style =>"margin-left:0px;"} 
+          %label Start Date: &nbsp; 
+          = @event.start_date.strftime("%d %B %Y %H:%M %p")
+        %p{:style =>"margin-left:0px;"} 
+          %label End Date: &nbsp;
+          = @event.end_date.strftime("%d %B %Y %H:%M %p")
+        %p{:style =>"margin-left:0px;"} 
+          %label Location: &nbsp;
+          = @event.location
+  = hidden_field :application, :location, :class => "input-xxlarge", :id => "addresspicker_map"
+  = hidden_field :application, :lat, :value => (@event.lat || "18.5204303"), :id => "lat"
+  = hidden_field :application, :lng, :value => (@event.lng || "73.85674369999992"), :id => "lng"
+  #map-detail
+
+#disqus_thread{:style => "padding-top:150px;"}
   
   
 :javascript
@@ -26,3 +70,18 @@
           dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
       })();
+    var addresspickerMap = $( "#addresspicker_map" ).addresspicker({
+        regionBias: "fr",
+      elements: {
+        map:      "#map-detail",
+        lat:      "#lat",
+        lng:      "#lng"
+      }
+    });
+    var gmarker = addresspickerMap.addresspicker( "marker");
+    gmarker.setVisible(true);
+    addresspickerMap.addresspicker( "updatePosition");
+    $(document).ready(function() {
+     $('#gallary').carousel();
+    });
+
