@@ -10,16 +10,27 @@
       %h2= @user.name
       %h3= "Joined #{@user.created_at.strftime("%B %Y")}"
     
-    - if @user.job_title
-      %label= @user.job_title
-    .clr
-    - if @user.dob
-      %label Birthday #{@user.dob.strftime("%d %b, %Y")}
-    - if @user.email
-      %label Email #{@user.email }
-    - if @user.website.present?
-      %label Website |
-      = link_to @user.website, @user.website, :target => :_blank
+    %ul.quote-list
+      %li
+        - if @user.job_title
+          %p{:style =>"margin-left:0px;"}
+            = @user.job_title
+        - if @user.dob
+          %p{:style =>"margin-left:0px;"}
+            %label Birthday 
+            #{@user.dob.strftime("%d %b, %Y")}
+        - if my_profile?(@user)
+          %p{:style =>"margin-left:0px;"}
+            %label Email 
+            #{@user.email }
+        - if @user.website.present?
+          %p{:style =>"margin-left:0px;"}
+            %label Website |
+            = link_to @user.website, @user.website, :target => :_blank
+        - if @user.about.present?
+          %p{:style =>"margin-left:0px;"}
+            %label About
+            = truncate(@user.about, :length => 200)
 
 %div.4u.right_full
   %ul

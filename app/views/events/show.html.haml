@@ -59,12 +59,14 @@
         %p{:style =>"margin-left:0px;"}
           %label Address: &nbsp; 
           = @event.user.address
-        %p{:style =>"margin-left:0px;"}
-          %label Website: &nbsp; 
-          = @event.user.website
-        %p{:style =>"margin-left:0px;"}
-          %label Email: &nbsp; 
-          = @event.user.email
+        - if @event.user.website.present?
+          %p{:style =>"margin-left:0px;"}
+            %label Website: &nbsp; 
+            = @event.user.website
+        - if @event.user.email.present?
+          %p{:style =>"margin-left:0px;"}
+            %label Email: &nbsp; 
+            = @event.user.email
 
   %section{:style => "min-height:100px;"}
     %ul.quote-list
