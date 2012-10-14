@@ -17,7 +17,7 @@ class AccountController < ApplicationController
     @events = @user.events 
     @past_events = @user.events.previous
     @upcoming_events = @user.events.upcoming
-    render :action => :account
+    render :action => :show
   end
 
   def update
@@ -33,6 +33,7 @@ class AccountController < ApplicationController
   private
 
   def load_user
-    @user = User.find_by_id(params[:profile])
+    @user = User.where(:_slugs => params[:slug]).first
+    @user || invalid_url!
   end
 end
