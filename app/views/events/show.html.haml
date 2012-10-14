@@ -57,8 +57,6 @@
         %span= @event.organizer_mobile_no
       %li
         %p{:style =>"margin-left:0px;"}
-          %label Address: &nbsp; 
-          = @event.user.address
         - if @event.user.website.present?
           %p{:style =>"margin-left:0px;"}
             %label Website: &nbsp; 
