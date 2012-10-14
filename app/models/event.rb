@@ -21,7 +21,7 @@ class Event
 
   belongs_to :user
 
-  has_mongoid_attached_file :logo, :styles => { :small => "50>", :medium => "100>", :large => "200>" , :extra_large => "450x190"}
+  has_mongoid_attached_file :logo, :styles => { :small => "50>", :medium => "100x71!", :large => "200>" , :extra_large => "450x190!"}
 
   validates_presence_of :name, :message => "Name can't blank."
   validates_presence_of :short_desc, :message => "Short description can't blank."
@@ -43,4 +43,17 @@ class Event
   scope :featured, where(:featured => true).published
   scope :previous, where(:start_date.lt => Date.today).order_by('end_date DESC').published
   scope :upcoming, where(:start_date.gt => Date.today).limit(5).order_by('start_date ASC').published
+
+  def as_json(options = {})
+    options = {:only => [:_id, :name, :featured], :methods => [:upcoming_event, :previous_event]} 
+    super
+  end
+
+  def upcoming_event
+    self.start_date > Date.today
+  end
+
+  def previous_event
+    self.start_date < Date.today
+  end
 end

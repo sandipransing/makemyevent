@@ -1,6 +1,7 @@
 .links {
-   text-align:right; 
-   padding-right: 40px;
+    padding-left: 104px;
+    position: relative;
+    width: 1148px;
 }
 
 .event ul li p {
@@ -121,6 +122,25 @@
 .right_full {
   width: 66% !important;
 }
+
+.short_desc {
+  min-height: 165px;
+}
+
+.participate {
+  text-align: right;
+}
+
+.add-event {
+  position: absolute;
+  right: 0;
+}
+
+.search-box {
+    border: 1px solid #474F51;
+    padding: 3px;
+}
+
 
 /* bootstrap carousel */
 

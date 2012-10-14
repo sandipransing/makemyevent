@@ -4,6 +4,6 @@ class HomeController < ApplicationController
     @feature_events = Event.featured
     @previous_events = Event.previous
     @upcoming_events = Event.upcoming
-    @organizers = User.organizers.limit(5) 
+    @organizers = User.organizers.limit(4) 
   end
 end

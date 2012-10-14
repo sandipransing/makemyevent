@@ -1,17 +1,22 @@
 = content_for :links do
-  .11u.links
-    = link_to "Add Event", new_event_path, class: 'button-small'
+  .links
+    = link_to "Add Event", new_event_path, class: 'button-small add-event'
+    = text_field_tag 'search', '', placeholder: 'Search events', class: 'search-box'
 
 - @events.each do |event|
-  .4u.event
+  .4u.event{:id => event.id}
     %section
       %header
-        %h2= link_to event.name, event
+        %h2= link_to event.name.truncate(30), event
       %ul.quote-list
         %li
           = image_tag event.logo(:medium)
           %p= event.organizer_name 
           %span= event.organizer_mobile_no
-        %p
+        %p.short_desc
           = event.short_desc
+        %p.participate
+          = link_to "Participate", "#", class: 'button-small'
 
+:javascript 
+  var events = #{@events.to_json}

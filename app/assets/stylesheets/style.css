@@ -87,7 +87,7 @@
 		
 			.quote-list li
 			{
-				padding: 1em 0 1em 0;
+				padding: 0.2em 0 0.2em 0;
 				overflow: hidden;
 			}
 			
@@ -360,6 +360,7 @@
 					line-height: 1.25em;
 					padding-right: 1em;
 					margin: 0 0 1em 0;
+          min-height: 150px
 				}
 
 		/* Features */
@@ -399,6 +400,7 @@
 					box-shadow: 2px 2px 2px 1px rgba(128,128,128,0.1);
 					margin: 0 0 10% 0;
           min-height: 350px;
+          border-radius: 15px;
 				}
 
 				#content h2
