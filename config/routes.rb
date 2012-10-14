@@ -8,8 +8,9 @@ MakeMyEvent::Application.routes.draw do
   match '/auth/:service/callback' => 'services#create' 
   match '/auth/failure' => 'services#failure'
 
-  match '/contact_us', to: 'pages#contact'
-  match '/user/:profile', to: 'account#profile', as: :user_profile
+  match '/contact_us', :to => 'pages#contact'
+  match '/user/:slug', :to => 'account#profile', as: :profile
+  match '/organizer/:slug', :to => 'account#profile', as: :organizer
 
   resource :account
 
