@@ -96,6 +96,10 @@ GEM
       tzinfo (~> 0.3.22)
     mongoid-paperclip (0.0.8)
       paperclip (>= 2.3.6)
+    mongoid-rspec (1.5.4)
+      mongoid (>= 3.0.1)
+      rake
+      rspec (>= 2.9)
     mongoid_slug (1.0.0)
       mongoid (~> 3.0)
       stringex (~> 1.4)
@@ -234,6 +238,7 @@ DEPENDENCIES
   mina
   mongoid (>= 2.0.0.beta.19)
   mongoid-paperclip
+  mongoid-rspec
   mongoid_slug
   omniauth (= 1.1.0)
   omniauth-facebook

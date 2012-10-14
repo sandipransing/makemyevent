@@ -26,7 +26,7 @@ class User
   has_and_belongs_to_many :participated_events, class_name: 'Event', inverse_of: :participants 
 
   validates :name, :presence => true
-  validate :email, :uniqueness => true
+  validates_uniqueness_of :email, :allow_blank => true
   validates_format_of :email, :with => Email_regex, :message => "Email format is invalid", :allow_blank => true
   validates_format_of :website, :with => /^http:\/\/.+$/, :message => "Website format is invalid", :allow_blank => true
 
