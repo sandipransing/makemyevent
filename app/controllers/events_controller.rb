@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
   before_filter :get_event, :except => [:index, :new, :create]
+  before_filter :un_wanted_assets_delete, :only => [:index, :show, :edit, :new]
 
   def index
     @events = Event.all
@@ -8,9 +9,11 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @event.unique_identifier = Time.now.to_i
   end
 
   def edit
+    @event.unique_identifier = Time.now.to_i if @event.unique_identifier.nil? 
   end
 
   def create
@@ -40,5 +43,10 @@ class EventsController < ApplicationController
 
   def get_event
     @event =  Event.find_by(:_slugs => params[:id])
+  end
+
+  def un_wanted_assets_delete
+    assets = Asset.where(is_primary: false)
+    assets.delete_all unless assets.blank?
   end
 end

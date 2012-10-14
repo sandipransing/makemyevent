@@ -16,6 +16,8 @@ MakeMyEvent::Application.routes.draw do
   resource :account
 
   resources :events
+  resources :assets
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

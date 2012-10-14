@@ -1,6 +1,7 @@
 = content_for :head do
   %script{:src=>"http://maps.google.com/maps/api/js?sensor=false"}
   = javascript_include_tag "jquery.ui.addresspicker"
+  = javascript_include_tag 'blueimp_setup', 'blueimp_file_uploader/jquery.fileupload', 'blueimp_file_uploader/jquery.iframe-transport'
   = stylesheet_link_tag "map"
 = display_errors(@event)
 = form_for @event, :html => {:class => 'form-vertical', :multipart => true} do |f|
@@ -77,6 +78,10 @@
       .controls
         = f.file_field :logo
       %small Maximum size 1 Mb
+
+    .right-box{:style => "width:100%"}
+      = f.hidden_field :unique_identifier, class: 'unique_identifier_for_assets'
+      = render partial: 'asset_form', locals: {model_name: @event.class.to_s.underscore, :object => @event}
     
     .map-view
       #map

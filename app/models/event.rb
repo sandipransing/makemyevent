@@ -18,9 +18,11 @@ class Event
   field :end_date, type: Time
   field :published, type: Boolean, default: false
   field :featured, type: Boolean, default: false
+  field :unique_identifier, type: String #used for assets identifiction
 
 
   belongs_to :user
+  has_many :assets, :autosave => true
 
   has_mongoid_attached_file :logo, :styles => { :small => "50>", :medium => "100>", :large => "200>" }
 
@@ -34,6 +36,8 @@ class Event
   validates_attachment :logo, :content_type => { :content_type =>['image/jpeg', 'image/png', 'image/gif'], :message => 'Image format should be jpg, png, gif.'},:size => { :in => 0..1024.kilobytes, :message => 'Logo image size should be less than 1Mb.'}
 
   validate :check_date
+  after_save :assign_images
+
 
   def check_date
     errors.add(:start_date, "Start Date should be greater than today's date") if !self.start_date.blank? and self.start_date < Time.now
@@ -44,4 +48,13 @@ class Event
   scope :featured, where(:featured => true).published
   scope :previous, where(:start_date.lt => Date.today).order_by('end_date DESC').published
   scope :upcoming, where(:start_date.gt => Date.today).limit(5).order_by('start_date ASC').published
+
+
+  def assign_images
+    assets = Asset.where(container_identifier: unique_identifier, container: self.class.to_s.underscore, is_primary: false)
+    assets.each do |asset|
+      asset.update_attributes(:is_primary => true, :event_id => self.id)
+    end
+  end
+
 end
