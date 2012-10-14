@@ -66,6 +66,7 @@ task :deploy => :environment do
     invoke :'rails:assets_precompile'
 
     to :launch do
+      queue! %[chmod -R 777 "#{deploy_to}/shared/tmp"]
       queue 'touch tmp/restart.txt'
     end
   end
