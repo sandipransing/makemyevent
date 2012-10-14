@@ -5,8 +5,8 @@ class AccountController < ApplicationController
   def show
     @user = current_user
     @events = @user.events 
-    @past_events = @user.events.previous
-    @upcoming_events = @user.events.upcoming
+    @past_events = @user.participated_events.previous
+    @upcoming_events = @user.participated_events.upcoming
   end
   
   def edit

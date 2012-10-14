@@ -25,18 +25,28 @@ module ApplicationHelper
     return return_string.respond_to?(:html_safe) ? return_string.html_safe : return_string
   end
 
+  def create_event_button
+    link_to("Create an Event", new_event_path, :class =>  :d3_btn)
+  end
+
+  def participate_link(event)
+    if current_user && event.participants.include?(current_user)
+      link_to('Leave', leave_event_path(event))
+    else
+      link_to('Participate', participate_event_path(event))
+    end unless event.past?
+  end
+
   def participate_button(event, klass= 'button-big')
-    unless event.past?
-      if current_user && event.participants.include?(current_user)
-        link_to('Leave', leave_event_path(event), class: klass)
-      else
-        link_to('Participate', participate_event_path(event), class: klass)
-      end
-    end
+    if current_user && event.participants.include?(current_user)
+      link_to('Leave', leave_event_path(event), :class => klass)
+    else
+      link_to('Participate', participate_event_path(event), :class => klass)
+    end unless event.past?
   end
 
   def manage_button(event, klass='button-small')
-    link_to('Manage', edit_event_path(@event), :class => "button-small") if current_user and @event.user.id == current_user.id
+    link_to('Manage', edit_event_path(event), :class => "button-small") if current_user == event.user
   end
 
   def add_assets_to_form(object)
