@@ -12,6 +12,7 @@
     = yield :head
   %body
     / Header
+    = show_flash_messages if show_flash_messages.present? 
     #header-wrapper
       = render 'header'
       = yield :feature_event

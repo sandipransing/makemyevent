@@ -1,2 +1,87 @@
-%h1 Pages#contact
-%p Find me in app/views/pages/contact.html.haml
+- content_for :title do
+  Team
+
+%div.4u-first
+  %section.team-thumbnails
+    %header
+      %h2 Team
+    %ul.thumbnails
+      %li
+        %a.current{"data-member" => "sandipransing"}
+          %span.circle{"data-member" => "sandipransing", "data-original-title" => "Sandip Ransing", :style => "background-image:url(assets/team/sandip.jpg)"}
+
+      %li
+        %a{"data-member" => "shailesh-patil"}
+          %span.circle{"data-member" => "shailesh-patil", "data-original-title" => "Shailesh Patil", :style => "background-image:url(assets/team/shailesh.jpg)"}
+    
+      %li
+        %a{"data-member" => "kiran-chaudhari"}
+          %span.circle{"data-member" => "kiran-chaudhari", "data-original-title" => "Kiran Chaudhari", :style => "background-image:url(assets/team/kiran.jpg)"}
+
+      %li
+        %a{"data-member" => "anil-maurya"}
+          %span.circle{"data-member" => "anil-maurya", "data-original-title" => "Anil Kumar Maurya", :style => "background-image:url(assets/team/anil.jpg)"}
+    
+%div.4u.right_full
+  %section
+    .bio.bio-sandipransing.hide.team-bios.current{:style => "display: block;"}
+      %h3.name
+        Sandip Ransing
+      %h4.title
+        Senior Software Engineer
+      .separator
+      .bio-text
+        %p Sandip has over 5+ yrs of exp. in design, development & support of various web apps built over RoR framework across various domains. He loves riding bike, playing carrom. He has Bachelors Degree in Computer Engineering from Modern College Of Engineering, Pune, in 2007.
+      .separator.pull-right.social-links
+        %p
+          %a{:href => "http://twitter.com/sandipransing", :target => "_blank"}
+            %img{:src => "assets/glyphicons_392_twitter_small.png", :title => "Follow @sandipransing"}
+          %a{:href => "http://funonrails.com/", :target => "_blank"}
+            %img{:src => "assets/glyphicons_397_rss_small.png", :title => "Sandip Ransing's blog"}
+          %a{:href => "http://www.linkedin.com/in/sandipransing", :target => "_blank"}
+            %img{:src => "assets/glyphicons_377_linked_in_small.png", :title => "Sandip Ransing's LinkedIn page"}
+    
+    .bio.bio-shailesh-patil.hide.team-bios.current{:style => "display: block;"}
+      %h3.name
+        Shailesh Patil
+      %h4.title
+        Senior Software Engineer
+      .separator
+      .bio-text
+        %p Shailesh has over 5+ yrs of exp. in design, development & support of various web apps built over RoR framework across various domains. He has been part of josh family since sepetember 2007. He has Bachelors Degree in Computer Engineering from PVG college of Engineering & Technology Pune, in 2007.
+      .separator.pull-right.social-links
+        %p
+          %a{:href => "http://twitter.com/patilshailesh", :target => "_blank"}
+            %img{:src => "assets/glyphicons_392_twitter_small.png", :title => "Follow @patilshailesh"}
+          %a{:href => "http://www.linkedin.com/in/shaileshspatil", :target => "_blank"}
+            %img{:src => "assets/glyphicons_377_linked_in_small.png", :title => "Shailesh Patil's LinkedIn page"}
+    	
+    .bio.bio-kiran-chaudhari.hide.team-bios.current{:style => "display: block;"}
+      %h3.name
+        Kiran Chaudhari
+      %h4.title
+        Senior Software Engineer
+      .separator
+      .bio-text
+        %p Senior Software Engineer with 5+ years of experience. He graduated from Pune University with a Bachelor Degree in Computer Engineer in 2007. He is working with josh since Jun 2008. Kiran is passionate about cricket.
+      .separator.pull-right.social-links
+        %p
+          %a{:href => "http://twitter.com/kiranchaudhari", :target => "_blank"}
+            %img{:src => "assets/glyphicons_392_twitter_small.png", :title => "Follow @kiranchaudhari"}
+          %a{:href => "http://www.linkedin.com/in/kirandc", :target => "_blank"}
+            %img{:src => "assets/glyphicons_377_linked_in_small.png", :title => "Kiran Chaudhari's LinkedIn page"}
+    	
+    .bio.bio-kiran-chaudhari.hide.team-bios{:style => "display: none;"}
+      %h3.name
+        Kiran Chaudhari
+      %h4.title
+        Senior Software Engineer
+      .separator
+      .bio-text
+        %p Senior Software Engineer with 5+ years of experience. He graduated from Pune University with a Bachelor Degree in Computer Engineer in 2007. He is working with josh since Jun 2008. Kiran is passionate about cricket.
+      .separator.pull-right.social-links
+        %p
+          %a{:href => "http://twitter.com/kiranchaudhari", :target => "_blank"}
+            %img{:src => "assets/glyphicons_392_twitter_small.png", :title => "Follow @kiranchaudhari"}
+          %a{:href => "http://www.linkedin.com/in/kirandc", :target => "_blank"}
+            %img{:src => "assets/glyphicons_377_linked_in_small.png", :title => "Kiran Chaudhari's LinkedIn page"}

@@ -13,6 +13,18 @@ module ApplicationHelper
     html.html_safe
   end
 
+  def show_flash_messages(options = {})
+    ret = []
+    flash.each do |key, value|
+      ret << content_tag( :div, {class: "flash alert alert-#{key} global", id: "flash-#{key}"}) do
+        content = haml_tag "a.close", "data-dismiss" => "alert" 
+        haml_concat value
+      end
+    end
+    return_string = ret.join("\n")
+    return return_string.respond_to?(:html_safe) ? return_string.html_safe : return_string
+  end
+
   def add_assets_to_form(object)
     assets_tag = []
     assets = object.assets
@@ -22,7 +34,9 @@ module ApplicationHelper
           assets_tag << content_tag('li', class: 'span-li', id: "asset_#{asset.id.to_s}") do
             content_tag('div', class: 'thumbnail') do
               link_to("x", asset_path(asset), :method => :delete, :remote => true) +
-              image_tag(asset.attachment.url(:small), data: {id: asset.id.to_s}) 
+              content_tag('div', class: 'thubnail-75') do
+                image_tag(asset.attachment.url(:small), data: {id: asset.id.to_s}) 
+              end
             end
           end
         end
@@ -34,7 +48,9 @@ module ApplicationHelper
           assets_tag << content_tag('li', class: 'span-li', id: "asset_#{asset.id.to_s}") do
             content_tag('div', class: 'thumbnail') do
               link_to("x", asset_path(asset), :method => :delete, :remote => true) +
-              image_tag(asset.attachment.url(:small), data: {id: asset.id.to_s}) 
+              content_tag('div', class: 'thubnail-75') do
+                image_tag(asset.attachment.url(:small), data: {id: asset.id.to_s}) 
+              end
             end
           end
         end

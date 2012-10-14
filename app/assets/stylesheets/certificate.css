@@ -1,0 +1,24 @@
+.container-box {
+     padding-top:100px;
+       }
+.event_name{
+     margin-left: 200px;padding-top: 12px;
+        }
+.event_name p{
+     font-weight: bold;font-size: 38px;
+        }
+.presented_to{
+     margin-left: 200px;font-size: 20px;margin-top: 30px;margin-bottom: 10px;
+        }
+.label{
+      padding-bottom: 10px;
+      }
+.participant_name{
+   font-size: 30px;font-style: italic;margin-bottom: 20px;
+      }
+.description{
+    padding-left: 158px;padding-right:288px;font-size: 18px;margin-bottom: 20px;
+     }
+.organiser p{
+     margin-right: 224px;font-size: 20px;margin-top: 40px;
+     }

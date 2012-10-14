@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/assets/certificate.css" />
+  </head>
+  <body>
+    <div class="container" style="background:url('<%= Rails.root %>/app/assets/images/bg.png') no-repeat;background-size:contain;"/>
+      <div class="container-box">
+        <div class="event_name">
+          <p><%= @event.name %></p> 
+        </div>  
+        <div class="presented_to">
+          <div class="label"> Presented To: </div>
+          <div class="participant_name"> 
+            <%=  @user.name %> 
+          </div> 
+        </div>
+        <div class="description" style="">
+          <p> For Paticipation in <%= @event.name %> </p>
+        </div>
+        <div class="organiser">
+          <p> Organised By: <%= @event.organizer_name %> </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

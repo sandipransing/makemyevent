@@ -1,5 +1,9 @@
 MakeMyEvent::Application.routes.draw do
 
+  devise_for :admins
+
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+
   # Omniauth
   match "/twitter/signin" => redirect("/auth/twitter")
   match "/facebook/signin" => redirect("/auth/facebook")
@@ -8,7 +12,7 @@ MakeMyEvent::Application.routes.draw do
   match '/auth/:service/callback' => 'services#create' 
   match '/auth/failure' => 'services#failure'
 
-  match '/contact_us', :to => 'pages#contact'
+  match '/team', :to => 'pages#contact'
   match '/user/:slug', :to => 'account#profile', as: :profile
   match '/organizer/:slug', :to => 'account#profile', as: :organizer
 
@@ -16,7 +20,11 @@ MakeMyEvent::Application.routes.draw do
 
   match '/certificate/:id/:slug', to: 'events#certificate', as: :certificate
 
-  resources :events
+  resources :events do 
+    member do
+      get :participate, :leave
+    end
+  end
   resources :assets
 
   # The priority is based upon order of creation:

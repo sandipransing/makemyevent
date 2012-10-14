@@ -21,6 +21,7 @@ class Event
 
   belongs_to :user
   has_many :assets, :autosave => true
+  #has_and_belongs_to_many :participants, class_name: 'User'
 
   has_mongoid_attached_file :logo, :styles => { :small => "50x50>", :medium => "100x100>", :large => "200x200>", :extra_large => "450x190>" }
 
@@ -35,7 +36,6 @@ class Event
 
   validate :check_date
   after_save :assign_images
-
 
   def check_date
     errors.add(:start_date, "Start Date should be greater than today's date") if !self.start_date.blank? and self.start_date < Time.now

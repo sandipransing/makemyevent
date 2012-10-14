@@ -83,6 +83,13 @@
   border-color: #EED3D7;
 }
 
+.global {
+  position: absolute;
+  z-index: 1000;
+  text-align:center;
+  width:100%;
+}
+
 #signin {
     position: absolute;
     right:0;
@@ -402,3 +409,84 @@
   font-weight: bold;
 }
 
+.team-thumbnails a {
+  text-decoration: none;
+}
+
+.team-bios {
+  padding: 20px 30px 30px;
+}
+
+.team-thumbnails .current .circle {
+  border-color: #FFFFFF;
+}
+
+.team-thumbnails .thumbnails li {
+  margin: 0 0 0 15px;
+}
+
+.thumbnails > li {
+  float: left;
+}
+
+.team-thumbnails .circle {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 99em 99em 99em 99em;
+  box-shadow: 0 3px 2px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  display: block;
+  height: 100px;
+  margin: 10px auto;
+  width: 100px;
+}
+
+.pull-right {
+  float: right;
+}
+
+.thubnail-100{
+ display: table-cell; 
+ height: 100px; 
+ margin: 0; 
+ text-align: center; 
+ vertical-align: middle; 
+ width: 100px;
+}
+
+.thubnail-500{
+ display: table-cell; 
+ height: 500px; 
+ margin: 0; 
+ text-align: center; 
+ vertical-align: middle; 
+ width: 500px;
+}
+
+.thubnail-50{
+ display: table-cell; 
+ height: 50px; 
+ margin: 0; 
+ text-align: center; 
+ vertical-align: middle; 
+ width: 50px;
+}
+
+.thubnail-75{
+ display: table-cell; 
+ height: 75px; 
+ margin: 0; 
+ text-align: center; 
+ vertical-align: middle; 
+ width: 75px;
+}
+
+.thubnail-200{
+ display: table-cell; 
+ height: 200px; 
+ margin: 0; 
+ text-align: center; 
+ vertical-align: middle; 
+ width: 200px;
+}

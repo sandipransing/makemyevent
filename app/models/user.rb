@@ -23,6 +23,8 @@ class User
   has_many :services, :dependent => :destroy, :autosave => true
   has_many :events, :dependent => :destroy, :autosave => true
 
+ # has_and_belongs_to_many :participated_events, class_name: 'Event'
+
   validates :name, :presence => true
   validate :email, :uniqueness => true
   validates_format_of :email, :with => Email_regex, :message => "Email format is invalid", :allow_blank => true
