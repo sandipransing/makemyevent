@@ -66,14 +66,15 @@
           %li
             .title_span
               = link_to event.name, event_path(event), :class => 'event-title'
-            .title_span
-              = event.start_date.strftime('%d, %b %y')
             .dt_span
+              = event.start_date.strftime('%d, %b %y')
+            .title_span
               #{ event.participants.count } Participant(s)
-            - if my_profile?(@user)
-              = link_to('Manage', edit_event_path(event), :class => 'pull-right')
-            - else
-              = participate_link(event)
+            .dt_span
+              - if my_profile?(@user)
+                = link_to('Manage', edit_event_path(event), :class => 'pull-right')
+              - else
+                = participate_link(event)
 
 
     
