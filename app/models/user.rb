@@ -4,8 +4,10 @@ class User
   include Mongoid::Document
   include Mongoid::Paperclip
   include Mongoid::Timestamps
+  include Mongoid::Slug
     
   field :name
+  slug :name
   field :dob, type: Date
   field :job_title
   field :email

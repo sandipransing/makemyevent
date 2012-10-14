@@ -1,5 +1,6 @@
 class AccountController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:profile]
+  before_filter :load_user, :only => [:profile]
 
   def show
     @user = current_user
@@ -12,6 +13,13 @@ class AccountController < ApplicationController
     @user = current_user
   end
 
+  def profile
+    @events = @user.events 
+    @past_events = @user.events.previous
+    @upcoming_events = @user.events.upcoming
+    render :action => :account
+  end
+
   def update
     @user = current_user
     if @user.update_attributes(params[:user])
@@ -20,5 +28,11 @@ class AccountController < ApplicationController
     else
       render :action => :edit
     end
+  end
+
+  private
+
+  def load_user
+    @user = User.find_by_id(params[:profile])
   end
 end

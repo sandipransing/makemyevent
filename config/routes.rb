@@ -1,7 +1,4 @@
 MakeMyEvent::Application.routes.draw do
-  get "pages/contact"
-
-  get "home/index"
 
   # Omniauth
   match "/twitter/signin" => redirect("/auth/twitter")
@@ -12,6 +9,7 @@ MakeMyEvent::Application.routes.draw do
   match '/auth/failure' => 'services#failure'
 
   match '/contact_us', :to => 'pages#contact'
+  match '/user/:profile', :to => 'account#profile', as: :user_profile
 
   resource :account
 
