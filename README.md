@@ -12,3 +12,9 @@
 
 ### GIT PULL ***
   git pull --rebase
+
+## Team URL
+  http://railsrumble.com/entries/44-make-my-event
+
+## Site URL
+  http://evenoma.r12.railsrumble.com
