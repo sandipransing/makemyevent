@@ -47,7 +47,6 @@ class Event
   scope :previous, where(:start_date.lt => Date.today).order_by('end_date DESC').published
   scope :upcoming, where(:start_date.gt => Date.today).limit(5).order_by('start_date ASC').published
 
-<<<<<<< HEAD
 
   def assign_images
     assets = Asset.where(container_identifier: unique_identifier, container: self.class.to_s.underscore, is_primary: false)
@@ -56,7 +55,6 @@ class Event
     end
   end
 
-=======
   def as_json(options = {})
     options = {:only => [:_id, :name, :featured], :methods => [:upcoming_event, :previous_event]} 
     super
@@ -69,5 +67,4 @@ class Event
   def previous_event
     self.start_date < Date.today
   end
->>>>>>> 9ca9923287feaafee77513e4486d935ecb5876de
 end
