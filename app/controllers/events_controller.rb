@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   before_filter :load_user, :only => [:certificate]
 
   def index
-    @events = Event.all.order_by('created_at DESC')
+    @events = Event.published.order_by('created_at DESC')
   end
 
   def new
