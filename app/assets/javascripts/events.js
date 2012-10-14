@@ -4,7 +4,7 @@
 //= require blueimp_file_uploader/jquery.iframe-transport
 
 $(document).ready(function() {
-if (events != undefined)
+if (!this.events)
   $('#search').keydown(function() {
      
   });
