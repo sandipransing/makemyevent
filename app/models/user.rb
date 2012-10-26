@@ -21,7 +21,8 @@ class User
     :styles => { large: ['200x200>', :jpg], thumb: ['75x75>', :jpg], medium: ['100x100>', :jpg], small: ['50x50>', :jpg]}
 
   has_many :services, :dependent => :destroy, :autosave => true
-  has_many :events, :dependent => :destroy, :autosave => true, inverse_of: :user
+  has_many :events, :dependent => :destroy, :autosave => true, :inverse_of => :user
+  has_and_belongs_to_many :organizers, :autosave => true, :inverse_of => :users
 
   has_and_belongs_to_many :participated_events, class_name: 'Event', inverse_of: :participants 
 

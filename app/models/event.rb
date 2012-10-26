@@ -20,6 +20,7 @@ class Event
   field :unique_identifier, type: String #used for assets identifiction
 
   belongs_to :user, inverse_of: :events
+  belongs_to :organizer, inverse_of: :events
 
   has_many :assets, :autosave => true
   has_and_belongs_to_many :participants, class_name: 'User', inverse_of: :participated_events
