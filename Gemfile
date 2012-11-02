@@ -53,3 +53,7 @@ gem 'pdfkit', '0.5.0'
 gem 'rails_admin'
 gem "devise"
 gem 'mongoid-rspec'
+
+group :production do
+  gem 'thin'
+end
