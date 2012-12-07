@@ -18,7 +18,7 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
-
+gem 'railroady'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -53,7 +53,3 @@ gem 'pdfkit', '0.5.0'
 gem 'rails_admin'
 gem "devise"
 gem 'mongoid-rspec'
-
-group :production do
-  gem 'thin'
-end
